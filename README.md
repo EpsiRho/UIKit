@@ -1,5 +1,5 @@
 # UIKit
-UIKit is a C++ Library with easy to use GUI functions
+A c++ Library for easy, nice looking console GUIs
 
 ### [DOCUMENTATION](https://uikit.phasetw0.com/)
 
