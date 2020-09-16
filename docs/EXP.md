@@ -37,37 +37,3 @@ usr_input = UI::mouseChoiceMenu(pos, "Mouse Test", "Check 1", "Check 2", "Check 
 #### Upcoming Changes
 * Click Hitbox spans over the whole string
 * Settings Integration
-
-## List
-#### Info
-> #### **IMPORTANT: This Function is incomplete, it only shows a list but is not editable**<br>
-> Displays a list to the user that the user can then add/remove/edit items from
-#### Syntax
-`list(COORD pos, std::string title, const char* item, NULL);`
-
-* *pos* - a COORD with the x and y position for the window to be placed
-* *title* - The string to be placed in the title box
-* *item* - Takes any remaining strings and displays them as the list
-* *NULL* - Tells the command to stop looking for string arguments
-
-#### Example
-```C++
-UI::list(pos, "To-Do", "Fix Code", "Sleep", "Sleep but again", "Sleep but this time on the couch", NULL);
-```
-
-#### Output
-```
-┌───────────────────────────────────┐
-│ To-Do                             │
-├───────────────────────────────────┤
-│ Fix Code                          │
-│ Sleep                             │
-│ Sleep but again                   │
-│ Sleep but this time on the couch  │
-└───────────────────────────────────┘
-```
-### Known Issues and Upcoming Changes
-#### Upcoming Changes
-* Give user the ability to edit the list
-* Syntax change to take in a vector instead of multiple strings
-* Return change to return a vector instead of void

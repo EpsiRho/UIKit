@@ -43,3 +43,14 @@
 #### Syntax Prototype
 `UI::FontSize(int size);`<br>
 `UI::Font(std::string);`
+
+## List
+#### Info
+> Displays a list to the user that the user can then add/remove/edit items from
+#### Syntax Prototype
+`list(COORD pos, std::string title, std::vector<std::string> items);`
+
+## Mouse Handling
+#### Info
+> Functions to handle mouse location and turn on / off mouse clicking<br>
+> Button commands for making items on screen mouse hoverable/clickable

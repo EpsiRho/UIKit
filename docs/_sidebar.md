@@ -5,6 +5,7 @@
 * [Color](ColorText)
 * [Cursor Handling](Cursor)
 * [Grids](Grid)
+* [List](List)
 * [Pathed Menu](PathMenu)
 * [Progress Bars](Progress)
 * [Search Bar](Search)

@@ -19,6 +19,7 @@ A demo of UIKit Functions can be found [Here](https://github.com/EpsiRho/UIKit/r
 [Color](ColorText)<br>
 [Cursor Handling](Cursor)<br>
 [Grids](Grid)<br>
+[List](List)<br>
 [Pathed Menu](PathMenu)<br>
 [Progress Bars](Progress)<br>
 [Search Bar](Search)<br>
