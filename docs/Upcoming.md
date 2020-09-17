@@ -1,11 +1,4 @@
 # Upcoming Features <!-- {docsify-ignore} -->
-## Settings
-#### Info
-> Give the developer the ability to change things such as:<br>
-> * Color highlighting (highlights current menu option with dev choice)<br> 
-> * Turn on and off the Borders around menus
-#### Syntax Prototype
-`UI::Setings.highlight = 10;`
 
 ## Multi Progress Bar Class
 #### Info

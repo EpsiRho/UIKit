@@ -23,6 +23,7 @@ A Demo for Beta 4 is not yet availible
 [Cursor Handling](Cursor)<br>
 [Grids](Grid)<br>
 [List](List)<br>
+[Mouse Handling](Mouse)<br>
 [Pathed Menu](PathMenu)<br>
 [Progress Bars](Progress)<br>
 [Search Bar](Search)<br>
