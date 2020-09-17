@@ -28,4 +28,4 @@ A demo of UIKit Functions can be found [Here](https://github.com/EpsiRho/UIKit/r
 
 ## Other / Incomplete
 [Experimental](EXP)<br>
-[Upcoming](upcoming)<br>
+[Upcoming](Upcoming)<br>

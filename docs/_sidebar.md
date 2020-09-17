@@ -12,4 +12,4 @@
 * [Text Menu](TextMenu)
 * [Text Wrapping](TextWrap)
 * [Experimental](EXP)
-* [Upcoming](upcoming)
+* [Upcoming](Upcoming)
