@@ -4,17 +4,17 @@ UIKit Provides an easy way to manage the console's cursor
 #### Info
 > Moves the cursor to the Specified X, Y
 #### Syntax
-`Cursor(int x, int y);`<br>
+`cursor(int x, int y);`<br>
 *X* - integer that represents the x<br>
 *Y* - integer that represents the y
 
-`Cursor(COORD destCoord)`<br>
+`cursor(COORD destCoord)`<br>
 *destCoord* - COORD Variable that contains x and y to the point desired
 
 #### Example
 ```C++
-UI::Cursor(10, 11);
-UI::Color("*[10,11]", 15);
+UI::cursor(10, 11);
+UI::color("*[10,11]", 15);
 ```
 
 ## Cursor Position
@@ -26,23 +26,23 @@ UI::Color("*[10,11]", 15);
 #### Example
 ```C++
 COORD home = UI::GetConsoleCursorPosition();
-UI::Cursor(0,5);
+UI::cursor(0,5);
 std::cout << "*";
-UI::Cursor(home);
+UI::cursor(home);
 ````
 
 ## Cursor Visibility
 #### Info
 > Hides or Shows the Cursor
 #### Syntax
-`HideCursor();` <br>
-`ShowCursor();`
+`hideCursor();` <br>
+`showCursor();`
 
 #### Example
 ```C++
-UI::HideCursor();
-UI::Cursor(20, 5);
+UI::hideCursor();
+UI::cursor(20, 5);
 std::cout << "hi";
-UI::Cursor(0,0);
-UI::ShowCursor();
+UI::cursor(0,0);
+UI::showCursor();
 ```

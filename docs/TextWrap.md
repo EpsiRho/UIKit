@@ -2,7 +2,7 @@
 #### Info
 > Wraps text with or without a bounding box<br>
 #### Syntax
-`Wrapper(COORD pos, std::string text, int wrap, int border);`
+`wrapper(COORD pos, std::string text, int wrap, int border);`
 
 * *pos* - a COORD with the x and y position for the window to be placed
 * *text* - The text to wrap
@@ -11,7 +11,7 @@
 
 #### Example
 ```C++
-UI::Wrapper(pos, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non arcu id ligula ultrices feugiat. Etiam pellentesque magna eu libero elementum auctor. Ut eu eleifend tellus, ornare sodales sapien. Mauris laoreet urna ac rutrum luctus. Suspendisse semper leo lacus, sed accumsan nulla vehicula nec. Nam posuere dui sed pretium convallis. Nulla viverra tellus ac elementum tristique. Mauris sit amet mauris enim.",
+UI::wrapper(pos, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non arcu id ligula ultrices feugiat. Etiam pellentesque magna eu libero elementum auctor. Ut eu eleifend tellus, ornare sodales sapien. Mauris laoreet urna ac rutrum luctus. Suspendisse semper leo lacus, sed accumsan nulla vehicula nec. Nam posuere dui sed pretium convallis. Nulla viverra tellus ac elementum tristique. Mauris sit amet mauris enim.",
 50, 1);
 ```
 

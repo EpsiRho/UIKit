@@ -40,6 +40,8 @@ namespace UI {
 	void wrapper(COORD pos, std::string text, int wrap, int border);
 	// Displays a list
 	void list(COORD pos, std::string title, const char* item, ...);
+	// Copies a string to the clipboard
+	void copyToClipboard(std::string str);
 	
 //~~ Menus ~~//
 	// Displays a Choice Menu and takes in an int
@@ -80,6 +82,10 @@ namespace UI {
 	COORD getMousePos();
 	// Waits for the user to click
 	void waitForClick();
+	// Creates text that can be clicked to copy to the clipboard
+	void clipboardText(COORD pos, std::string text, std::string copy);
+	// Stops a clipboard text button
+	void clipboardEnd();
 	// Displays a Choice Menu with support for mouse selection and returns an int
 	int mouseChoiceMenu(COORD pos, std::string title, const char* choice, ...);
 }

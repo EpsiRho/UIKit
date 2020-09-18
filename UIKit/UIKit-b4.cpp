@@ -322,6 +322,15 @@ void UI::list(COORD pos, std::string title, const char* item, ...) {
 
 
 }
+void UI::copyToClipboard(std::string str) {
+    HGLOBAL hMem = GlobalAlloc(GMEM_MOVEABLE, str.length() + 1);
+    memcpy(GlobalLock(hMem), str.c_str(), str.length() + 1);
+    GlobalUnlock(hMem);
+    OpenClipboard(0);
+    EmptyClipboard();
+    SetClipboardData(CF_TEXT, hMem);
+    CloseClipboard();
+}
 
 //~~ Menus ~~//
 int UI::choiceMenu(COORD pos, std::string title, const char* choice, ...) {
@@ -874,6 +883,44 @@ void UI::waitForClick() {
             }
         }
     }
+}
+int clipDestroy = 0;
+void UI::clipboardText(COORD pos, std::string text, std::string copy) {
+    INPUT_RECORD InputRecord;
+    DWORD Events;
+    hideCursor();
+
+    // Move cursor to the specified position
+    cursor(pos);
+    // Print the specified text
+    color(text, 15);
+
+    // Enter a loop to check if the mouse is over the text
+    while (clipDestroy == 0){
+        ReadConsoleInput(hin, &InputRecord, 1, &Events);
+        COORD p = InputRecord.Event.MouseEvent.dwMousePosition;
+        if (p.X >= pos.X && p.X <= pos.X+text.length() && pos.Y == p.Y) {
+            cursor(pos);
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
+            std::cout << text;
+        }
+        else {
+            cursor(pos);
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+            std::cout << text;
+        }
+        if (InputRecord.EventType == MOUSE_EVENT) {
+            if (InputRecord.Event.MouseEvent.dwButtonState == FROM_LEFT_1ST_BUTTON_PRESSED) {
+                if (p.X >= pos.X && p.X <= pos.X + text.length() && pos.Y == p.Y) {
+                    copyToClipboard(copy);
+                }
+            }
+        }
+    }
+    clipDestroy = 0;
+}
+void UI::clipboardEnd() {
+    clipDestroy = 1;
 }
 int UI::mouseChoiceMenu(COORD pos, std::string title, const char* choice, ...) {
     // Vars

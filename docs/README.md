@@ -17,8 +17,9 @@ A Demo for Beta 4 is not yet availible
 
 ## Function Docs:
 [Boolean Menu](BoolMenu)<br>
-[ClearScreen](ClearScreen)<br>
 [Choice Menu](ChoiceMenu)<br>
+[ClearScreen](ClearScreen)<br>
+[Clipboard](Clipboard)<br>
 [Color](ColorText)<br>
 [Cursor Handling](Cursor)<br>
 [Grids](Grid)<br>
@@ -31,5 +32,4 @@ A Demo for Beta 4 is not yet availible
 [Text Wrapping](TextWrap)<br>
 
 ## Other / Incomplete
-[Experimental](EXP)<br>
 [Upcoming](Upcoming)<br>

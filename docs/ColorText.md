@@ -3,7 +3,7 @@
 #### Info
 > Using Color() you can output a string in a desired color
 #### Syntax
-`Color(string text, int clr);`
+`color(string text, int clr);`
 
 * *text* - The string to be colored
 
@@ -11,18 +11,18 @@
 
 #### Example
 ```C++
-UI::Color("This text will be light blue", 11);
+UI::color("This text will be light blue", 11);
 ```
 
 ## Default Color
 #### Info
 > Instead of just one string, DefaultColor() Sets the base color for the entire console window
 #### Syntax
-`DefaultColor(int clr);`
+`defaultColor(int clr);`
 
 *clr* - The integer ID to a color
 
 #### Example
 ```C++
-UI::DefaultColor(120);
+UI::defaultColor(120);
 ```
