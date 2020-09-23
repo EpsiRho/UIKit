@@ -5,6 +5,7 @@
 * [Clipboard](Clipboard)
 * [Color](ColorText)
 * [Cursor Handling](Cursor)
+* [Font Handling](Font)
 * [Grids](Grid)
 * [List](List)
 * [Mouse Handling](Mouse)
@@ -13,4 +14,5 @@
 * [Search Bar](Search)
 * [Text Menu](TextMenu)
 * [Text Wrapping](TextWrap)
+* [Window Handling](Window)
 * [Upcoming](Upcoming)

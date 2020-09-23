@@ -1,3 +1,7 @@
+// UIKit Beta 4 Revision 2
+// Written by Epsi
+// Last Update: September 22, 2020
+
 #include "UIKit-b4.h"
 
 // Border Defs
@@ -21,6 +25,14 @@ constexpr char kEnter = '\r';
 
 HANDLE hout = GetStdHandle(STD_OUTPUT_HANDLE);
 HANDLE hin = GetStdHandle(STD_INPUT_HANDLE);
+
+std::wstring to_wstring(std::string str)
+{
+    int wchars_num = MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, NULL, 0);
+    wchar_t* wstr = new wchar_t[wchars_num];
+    MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, wstr, wchars_num);
+    return wstr;
+}
 
 //~~ Console Handling ~~//
 void UI::clearScreen()
@@ -105,6 +117,91 @@ void UI::showCursor()
     info.dwSize = 15;
     info.bVisible = TRUE;
     SetConsoleCursorInfo(consoleHandle, &info);
+}
+void UI::enableFullscreen() {
+    SetConsoleDisplayMode(GetStdHandle(STD_OUTPUT_HANDLE), CONSOLE_FULLSCREEN_MODE, 0);
+}
+void UI::disableFullscreen() {
+    SetConsoleDisplayMode(GetStdHandle(STD_OUTPUT_HANDLE), CONSOLE_WINDOWED_MODE, 0);
+}
+void UI::hideScrollbar() {
+    CONSOLE_SCREEN_BUFFER_INFO info;
+    GetConsoleScreenBufferInfo(hout, &info);
+    COORD new_size =
+    {
+        info.srWindow.Right - info.srWindow.Left + 1,
+        info.srWindow.Bottom - info.srWindow.Top + 1
+    };
+    SetConsoleScreenBufferSize(hout, new_size);
+}
+void UI::showScrollbar() {
+    CONSOLE_SCREEN_BUFFER_INFO info;
+    GetConsoleScreenBufferInfo(hout, &info);
+    COORD new_size =
+    {
+        info.srWindow.Right - info.srWindow.Left,
+        info.srWindow.Bottom - info.srWindow.Top
+    };
+    SMALL_RECT Rect;
+    Rect.Top = 0;
+    Rect.Left = 0;
+    Rect.Bottom = info.srWindow.Bottom - info.srWindow.Top - 1;
+    Rect.Right = info.srWindow.Right - info.srWindow.Left;
+    SetConsoleScreenBufferSize(hout, new_size);
+    SetConsoleWindowInfo(hout, TRUE, &Rect);
+}
+void UI::setWindowSize(int Width, int Height) {
+    COORD coord;
+    coord.X = Width;
+    coord.Y = Height;
+
+    _SMALL_RECT Rect;
+    Rect.Top = 0;
+    Rect.Left = 0;
+    Rect.Bottom = Height - 1;
+    Rect.Right = Width - 1;
+    SetConsoleScreenBufferSize(hout, coord);
+    SetConsoleWindowInfo(hout, TRUE, &Rect);
+}
+COORD UI::getWindowSize() {
+    CONSOLE_SCREEN_BUFFER_INFO info;
+    GetConsoleScreenBufferInfo(hout, &info);
+    COORD size =
+    {
+        info.srWindow.Right - info.srWindow.Left,
+        info.srWindow.Bottom - info.srWindow.Top
+    };
+    return size;
+}
+
+//~~ Font Handling ~~//
+void UI::setFontSize(int FontSize)
+{
+    CONSOLE_FONT_INFOEX info = { 0 };
+    GetCurrentConsoleFontEx(hout, FALSE, &info);
+    info.cbSize = sizeof(info);
+    info.dwFontSize.Y = FontSize;
+    //info.FontWeight = FW_NORMAL;
+    //wcscpy(info.FaceName, L"Lucida Console");
+    SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), FALSE, &info);
+}
+void UI::setFont(std::string font) {
+    CONSOLE_FONT_INFOEX info = { 0 };
+    _CONSOLE_FONT_INFO fontinfo = { 0 };
+    GetCurrentConsoleFontEx(hout, FALSE, &info);
+    GetCurrentConsoleFont(hout, FALSE, &fontinfo);
+    COORD fntSize = GetConsoleFontSize(hout, fontinfo.nFont);
+    //std::cout << fntSize.X << " / " << fntSize.Y;
+    info.cbSize = sizeof(info);
+    info.dwFontSize.X = fntSize.X;
+    info.dwFontSize.Y = fntSize.Y;
+    //info.FontFamily = FF_DONTCARE;
+    //info.FontWeight = FW_NORMAL;
+    std::wstring str = to_wstring(font);
+    lstrcpyW(info.FaceName, str.c_str());
+    std::wstring fuck = info.FaceName;
+    //std::wcout << info.FaceName << fuck.size();
+    SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), FALSE, &info);
 }
 
 //~~ Text Formatting ~~//
@@ -330,6 +427,15 @@ void UI::copyToClipboard(std::string str) {
     EmptyClipboard();
     SetClipboardData(CF_TEXT, hMem);
     CloseClipboard();
+}
+std::string UI::copyFromClipboard() {
+    OpenClipboard(nullptr);
+    HANDLE hData = GetClipboardData(CF_TEXT);
+    char* pszText = static_cast<char*>(GlobalLock(hData));
+    std::string text(pszText);
+    GlobalUnlock(hData);
+    CloseClipboard();
+    return text;
 }
 
 //~~ Menus ~~//

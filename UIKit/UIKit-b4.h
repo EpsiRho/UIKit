@@ -9,10 +9,13 @@
 #include <mutex>
 #include <algorithm>
 #include <deque>
+#include <locale>
+#include <codecvt>
+#include <cstdint> 
 
-// UIKit Beta 3
+// UIKit Beta 4 Revision 2
 // Written by Epsi
-// Last Update: September 15, 2020
+// Last Update: September 22, 2020
 
 namespace UI {	
 //~~ Console Handling ~~//
@@ -32,6 +35,22 @@ namespace UI {
 	void hideCursor();
 	// Shows the Cursor
 	void showCursor();
+	// Activates Fullscreen on the terminal window
+	void enableFullscreen();
+	// Deactivates Fullscreen on the terminal window
+	void disableFullscreen();
+	// Removes the scrollbar
+	void hideScrollbar();
+	// Shows the scrollbar
+	void showScrollbar();
+	// Set console window size
+	void setWindowSize(int Width, int Height);
+	// gets the window size x, y(width, height)
+	COORD getWindowSize();
+
+//~~ Font Handling ~~//
+	void setFontSize(int FontSize);
+	void setFont(std::string font);
 
 //~~ Text Formating ~~//
 	// Displays a Grid
@@ -42,6 +61,7 @@ namespace UI {
 	void list(COORD pos, std::string title, const char* item, ...);
 	// Copies a string to the clipboard
 	void copyToClipboard(std::string str);
+	std::string copyFromClipboard();
 	
 //~~ Menus ~~//
 	// Displays a Choice Menu and takes in an int

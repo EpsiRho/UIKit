@@ -9,11 +9,5 @@
 ## Refresh 
 > Clears/Replaces a set area of the screen
 
-## Window Handling
-> Allows you to change the height / width and if the window is show / hiddem / fullscreen
-
-## Font Handling
-> Allows you to change the font, font size, etc
-
 ## List
 > Displays a list to the user that the user can then add/remove/edit items from
