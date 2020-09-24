@@ -3,7 +3,7 @@
 > Displays a Custom Grid<br>
 > Grid Cells MUST be terminated with NULL
 #### Syntax
-`Grid(COORD pos, int columns, int rows, const char* arg, NULL);`
+`grid(COORD pos, int columns, int rows, const char* arg, NULL);`
 
 * *pos* - a COORD with the x and y postion for the window to be placed
 * *columns* - The Number of Columns in the grid
@@ -13,7 +13,7 @@
 
 #### Example
 ```C++
-UI::Grid(pos, 3, 4, "Name", "Rank", "Date Started",
+UI::grid(pos, 3, 4, "Name", "Rank", "Date Started",
 						   "Jeremy", "Worker", "04/23/20",
 						   "Zack", "Captain", "06/11/17",
 						   "Noah", "", "TBD", NULL);
