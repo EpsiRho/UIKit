@@ -1,4 +1,4 @@
-# UIKit Beta 4 Revision 2
+# UIKit Beta 4 Revision 3
 
 ## About
 UIKit is a C++ Library for making console GUIs with ease<br>
@@ -18,6 +18,7 @@ A Demo for Beta 4 is not yet availible
 ## Function Docs:
 [Boolean Menu](BoolMenu)<br>
 [Choice Menu](ChoiceMenu)<br>
+[ClearPos](ClearPos)<br>
 [ClearScreen](ClearScreen)<br>
 [Clipboard](Clipboard)<br>
 [Color](ColorText)<br>
@@ -28,6 +29,7 @@ A Demo for Beta 4 is not yet availible
 [Mouse Handling](Mouse)<br>
 [Pathed Menu](PathMenu)<br>
 [Progress Bars](Progress)<br>
+[Refresh](refresh)<br>
 [Search Bar](Search)<br>
 [Text Menu](TextMenu)<br>
 [Text Wrapping](TextWrap)<br>

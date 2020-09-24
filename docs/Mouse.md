@@ -56,10 +56,8 @@ usr_input = UI::mouseChoiceMenu(pos, "Mouse Test", "Check 1", "Check 2", "Check 
 ┌─────────────┐
 │ Mouse Test  │
 ├─────────────┤
-│ Check 1   █▌│
-│ Check 2   █▌│
-│ Check 3   █▌│
+│ Check 1     │
+│ Check 2     │
+│ Check 3     │
 └─────────────┘
 ```
-#### Upcoming Changes
-* Click Hitbox spans over the whole string
