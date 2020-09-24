@@ -3,7 +3,7 @@ A c++ Library for easy, nice looking console GUIs
 
 ### [DOCUMENTATION](https://epsirho.github.io/UIKit/#/)
 
-### [Demo Application]()
+### [Demo Application](https://github.com/EpsiRho/UIKit/releases/tag/b-4.4)
 
 ## Version
 ### Beta 4 Revision 4
@@ -25,6 +25,6 @@ A c++ Library for easy, nice looking console GUIs
 -mouseChoiceMenu breaking text input<br>
 -GetConsoleCursorPosition Not Working<br>
 -MouseChoiceMenu bugged when changing Y from 0
-- Default Console Color not working
-- Menu titles being larger than choices causes clipping issues
-- Color not working after syntax change
+-Default Console Color not working
+-Menu titles being larger than choices causes clipping issues
+-Color not working after syntax change
