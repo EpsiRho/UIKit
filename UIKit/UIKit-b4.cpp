@@ -1,6 +1,6 @@
-// UIKit Beta 4 Revision 2
+// UIKit Beta 4 Revision 4
 // Written by Epsi
-// Last Update: September 22, 2020
+// Last Update: September 24, 2020
 
 #include "UIKit-b4.h"
 
@@ -72,17 +72,17 @@ void UI::clearScreen()
     SetConsoleCursorPosition(hStdOut, homeCoords);
 }
 void UI::color(std::string text, int clr) {
-    SetConsoleTextAttribute(hin, clr);
+    SetConsoleTextAttribute(hout, clr);
     std::cout << text << std::endl;
-    SetConsoleTextAttribute(hin, 7);
+    SetConsoleTextAttribute(hout, 7);
 }
 void UI::defaultColor(int clr) {
-    SetConsoleTextAttribute(hin, clr);
+    SetConsoleTextAttribute(hout, clr);
 }
 COORD UI::getConsoleCursorPosition()
 {
     CONSOLE_SCREEN_BUFFER_INFO cbsi;
-    if (GetConsoleScreenBufferInfo(hin, &cbsi))
+    if (GetConsoleScreenBufferInfo(hout, &cbsi))
     {
         return cbsi.dwCursorPosition;
     }
@@ -104,11 +104,10 @@ void UI::cursor(COORD destCoord) {
 }
 void UI::hideCursor()
 {
-    HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
     CONSOLE_CURSOR_INFO info;
     info.dwSize = 100;
     info.bVisible = FALSE;
-    SetConsoleCursorInfo(consoleHandle, &info);
+    SetConsoleCursorInfo(hout, &info);
 }
 void UI::showCursor()
 {
@@ -172,6 +171,24 @@ COORD UI::getWindowSize() {
         info.srWindow.Bottom - info.srWindow.Top
     };
     return size;
+}
+void UI::clearPos(int x1, int y1, int x2, int y2) {
+    for (int i = 0; i <= y2 - y1; i++) {
+        for (int k = 0; k <= x2 - x1; k++) {
+            UI::cursor(x1 + k, y1 + i);
+            std::cout << " ";
+        }
+    }
+}
+void UI::refresh(int x1, int y1, int x2, int y2, std::string chars) {
+    int count = 0;
+    for (int i = 0; i <= y2 - y1; i++) {
+        for (int k = 0; k <= x2 - x1; k++) {
+            UI::cursor(x1 + k, y1 + i);
+            std::cout << chars[count];
+            count++;
+        }
+    }
 }
 
 //~~ Font Handling ~~//
@@ -466,6 +483,9 @@ int UI::choiceMenu(COORD pos, std::string title, const char* choice, ...) {
             longest = pass.size();
         }
     }
+    if (longest < title.size()) {
+        longest = title.size();
+    }
 
     // Output the Top of the Menu
     cursor(pos.X, pos.Y);
@@ -584,7 +604,7 @@ std::string UI::textMenu(COORD pos, std::string title) {
     cursor(pos.X, pos.Y);
     std::cout << "> ";
     //Update Border
-    std::cin.ignore();
+    //std::cin.ignore();
     getline(std::cin, finished);
     return finished;
 }
@@ -965,11 +985,11 @@ void UI::ProgressBar::write_progress(COORD pos) {
 bool mouseEnabled = false;
 void UI::enableMouseHandling() {
     SetConsoleMode(hin, ENABLE_PROCESSED_INPUT | ENABLE_MOUSE_INPUT | ENABLE_EXTENDED_FLAGS);
-    mouseEnabled == true;
+    mouseEnabled = true;
 }
 void UI::disabledMouseHandling() {
     SetConsoleMode(hin, ENABLE_QUICK_EDIT_MODE | ENABLE_LINE_INPUT | ENABLE_ECHO_INPUT);
-    mouseEnabled == false;
+    mouseEnabled = false;
 }
 COORD UI::getMousePos() {
     INPUT_RECORD InputRecord;
@@ -977,18 +997,25 @@ COORD UI::getMousePos() {
     ReadConsoleInput(hin, &InputRecord, 1, &Events);
     return InputRecord.Event.MouseEvent.dwMousePosition;
 }
-void UI::waitForClick() {
+COORD UI::waitForClick() {
     INPUT_RECORD InputRecord;
     DWORD Events;
     while (1) {
         ReadConsoleInput(hin, &InputRecord, 1, &Events);
+        COORD p = InputRecord.Event.MouseEvent.dwMousePosition;
         if (InputRecord.EventType == MOUSE_EVENT) {
             if (InputRecord.Event.MouseEvent.dwButtonState == FROM_LEFT_1ST_BUTTON_PRESSED)
             {
-                return;
+                return p;
             }
         }
     }
+}
+bool UI::posInArea(COORD pos, int x1, int y1, int x2, int y2) {
+    if (pos.X >= x1 && pos.X <= x2 && pos.Y >= y1 && pos.Y <= y2) {
+        return true;
+    }
+    return false;
 }
 int clipDestroy = 0;
 void UI::clipboardText(COORD pos, std::string text, std::string copy) {
@@ -1060,6 +1087,11 @@ int UI::mouseChoiceMenu(COORD pos, std::string title, const char* choice, ...) {
             longest = pass.size();
         }
     }
+    if (longest < title.size()) {
+        longest = title.size();
+    }
+
+    //SetConsoleTextAttribute(hout, 15);
 
     // Output the Top of the Menu
     cursor(pos.X, pos.Y);
@@ -1093,7 +1125,7 @@ int UI::mouseChoiceMenu(COORD pos, std::string title, const char* choice, ...) {
         for (int j = items[i].size(); j < longest + 2; j++) {
             std::cout << " ";
         }
-        std::cout << "  " << (char)221 << vLine << std::endl;
+        std::cout << "   " << vLine << std::endl;
         pos.Y++;
         cursor(pos.X, pos.Y);
 
@@ -1127,25 +1159,34 @@ int UI::mouseChoiceMenu(COORD pos, std::string title, const char* choice, ...) {
         ReadConsoleInput(hin, &InputRecord, 1, &Events);
         COORD p = InputRecord.Event.MouseEvent.dwMousePosition;
         for (int i = 0; i < points.size(); i++) {
-            UI::cursor(points[i].X, points[i].Y);
-            SetConsoleTextAttribute(hin, 8);
-            std::cout << sel << ptr;
+            UI::cursor(points[i].X - longest - 3, points[i].Y);
+            SetConsoleTextAttribute(hout, 8);
+            //std::cout << sel << ptr;
+            std::cout << items[i];
         }
         for (int i = 0; i < points.size(); i++) {
-            if (p.X == points[i].X && p.Y == points[i].Y || p.X == points[i].X + 1 && p.Y == points[i].Y) {
-                UI::cursor(points[i].X, points[i].Y);
-                SetConsoleTextAttribute(hin, 15);
-                std::cout << sel << ptr;
+            if (p.X >= points[i].X - longest - 2 && p.X <= points[i].X && p.Y == points[i].Y) {
+                UI::cursor(points[i].X - longest - 3, points[i].Y);
+                SetConsoleTextAttribute(hout, 11);
+                //std::cout << sel << ptr;
+                std::cout << items[i];
             }
         }
         if (InputRecord.EventType == MOUSE_EVENT) {
             if (InputRecord.Event.MouseEvent.dwButtonState == FROM_LEFT_1ST_BUTTON_PRESSED)
             {
                 for (int i = 0; i < points.size(); i++) {
-                    if (p.X == points[i].X && p.Y == points[i].Y) {
-                        UI::cursor(p.X, p.Y);
-                        std::cout << clk;
+                    if (p.X >= points[i].X - longest - 2 && p.X <= points[i].X && p.Y == points[i].Y) {
+                        UI::cursor(points[i].X - longest - 4, points[i].Y);
+                        SetConsoleTextAttribute(hout, 187);
+                        std::cout << " " << items[i];
+                        for (int k = items[i].size(); k < longest + 2; k++) {
+                            std::cout << " ";
+                        }
+                        std::cout << "   ";
+                        UI::cursor(p.X, (p.Y+4) - i);
                         showCursor();
+                        SetConsoleTextAttribute(hout, 15);
                         return i;
                     }
                 }
