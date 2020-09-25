@@ -3,7 +3,7 @@
 #### Info
 > Outputs a Menu that allows the user to select yes or no <br>
 > Operated with up and down arrow keys <br>
-> Returns a Boolen Value Chosen by the User
+> Returns a Boolen value chosen by the User
 #### Syntax
 `boolMenu(COORD pos, string _title_);`
 
