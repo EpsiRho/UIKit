@@ -1,4 +1,4 @@
-## Beta 4 Revision 4
+## Beta 4 Release
 ### Additions<br>
 - [ClearPos](https://epsirho.github.io/UIKit/#/ClearPos)<br>
 - [Clipboard](https://epsirho.github.io/UIKit/#/Clipboard)<br>
@@ -14,11 +14,20 @@
 ### Fixes<br>
 - mouseChoiceMenu breaking text input<br>
 - GetConsoleCursorPosition Not Working<br>
-- MouseChoiceMenu bugged when changing Y from 0
-- Default Console Color not working
-- Menu titles being larger than choices causes clipping issues
-- Color not working after syntax change
+- MouseChoiceMenu bugged when changing Y from 0<br>
+- Default Console Color not working<br>
+- Menu titles being larger than choices causes clipping issues<br>
+- Color not working after syntax change<br>
 
-## Beta 5 Revision 1
+## Beta 5 Revision 1<br>
 ### Fixes<br>
--
+- Fixed Text Menu<br>
+- Fixed broken input after mouse input disable<br>
+- Switched from std::cout to fwrite(through TextMenu, pathMenu and below needs to be finished)<br>
+
+## Plans for Beta 5 Release<br>
+- Functions with Args overload with vectors.<br>
+- Demo Application Complete<br>
+- Editable List<br>
+- Screenshot<br>
+- Multiple Progres Bars<br>
