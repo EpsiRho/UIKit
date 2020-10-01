@@ -1,3 +1,7 @@
+// UIKit Beta 5 Revision 1 
+// Written by Epsi
+// Last Update: October 1, 2020
+
 #pragma once
 #define NOMINMAX
 #include <Windows.h>
@@ -12,10 +16,6 @@
 #include <locale>
 #include <codecvt>
 #include <cstdint> 
-
-// UIKit Beta 4 Revision 4
-// Written by Epsi
-// Last Update: September 24, 2020
 
 namespace UI {	
 //~~ Console Handling ~~//
