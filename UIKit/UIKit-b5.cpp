@@ -1,4 +1,4 @@
-// UIKit Beta 5 Revision 2
+// UIKit Beta 5 Revision 3
 // Written by Epsi
 // Last Update: October 1, 2020
 
@@ -480,7 +480,6 @@ int UI::choiceMenu(COORD pos, std::string title, const char* choice, ...) {
     std::string pass;
     std::vector<std::string> items;
     int longest;
-    int usr_input;
     COORD loc;
     char in = ' ';
     int menupos;
@@ -602,11 +601,6 @@ int UI::choiceMenu(COORD pos, std::string title, const char* choice, ...) {
 }
 std::string UI::textMenu(COORD pos, std::string title) {
     // Vars
-    COORD origionLoc;
-    COORD loc;
-    char in = ' ';
-    char last = ' ';
-    int cur;
     title = title + ":";
 
     // Output the Top of the Menu
@@ -645,8 +639,56 @@ std::string UI::textMenu(COORD pos, std::string title) {
     fgets(buffer, sizeof(buffer), stdin);
     return buffer;
 }
-std::vector<std::string> UI::loginMenu(COORD pos, const char* choice, ...) {
-    throw OSS_UNIMPLEMENTED;
+std::vector<std::string> UI::loginMenu(COORD pos, std::string title, const char* choice, ...) {
+    // Vars
+    std::string pass;
+    std::vector<std::string> items;
+    std::vector<std::string> output;
+    int longest;
+
+    // Grab Function Args
+    va_list arguments;
+    for (va_start(arguments, choice); choice != NULL; choice = va_arg(arguments, const char*)) {
+        pass = choice;
+        items.push_back(pass);
+    }
+    va_end(arguments);
+
+    // Get Longest string
+    pass = items[0];
+    longest = pass.size();
+    for (int i = 1; i < items.size(); i++) {
+        if (pass.size() < items[i].size()) {
+            pass = items[i];
+            longest = pass.size();
+        }
+    }
+
+    cursor(pos.X, pos.Y);
+    char titleLines[] = { tlCorner, rGrid};
+    fwrite(&titleLines, sizeof(titleLines), 1, stdout);
+    fwrite(title.c_str(), title.size(), 1, stdout);
+    fwrite("\n ", 1, 1, stdout);
+
+    for (int i = 0; i < items.size(); i++) {
+        fwrite(&vLine, 1, 1, stdout);
+        fwrite(" ", 1, 1, stdout);
+        fwrite(items[i].c_str(), items[i].size(), 1, stdout);
+        fwrite(":\n", 2, 1, stdout);
+    }
+
+    fwrite(&blCorner, 1, 1, stdout);
+    for (int i = 0; i < longest + 2; i++) {
+        fwrite(&hLine, 1, 1, stdout);
+    }
+    fwrite(&rGrid, 1, 1, stdout);
+    
+    for (int i = 0; i < items.size(); i++) {
+        cursor(pos.X+items[i].size() + 4, pos.Y+i+1);
+        std::getline(std::cin, pass);
+        output.push_back(pass);
+    }
+    return output;
 }
 bool UI::boolMenu(COORD pos, std::string title) {
     // Vars
@@ -654,7 +696,6 @@ bool UI::boolMenu(COORD pos, std::string title) {
     char ch = ' ';
     COORD loc;
     hideCursor();
-    //ClearScreen();
 
     // Output Top Bar
     cursor(pos.X, pos.Y);

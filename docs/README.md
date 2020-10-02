@@ -1,8 +1,9 @@
-# UIKit Beta 4 Revision 3
+# UIKit Beta 5 Revision 3
 
 ## About
 UIKit is a C++ Library for making console GUIs with ease.<br>
-Written by [Epsi](https://twitter.com/EpsilonRho).
+Written by [Epsi](https://twitter.com/EpsilonRho).<br>
+Changelog can be found [Here](CHANGELOG)<br>
 
 ## Using UIKit
 To use UIKit downlaod the zip file from [here](https://github.com/EpsiRho/UIKit/releases/tag/b-4.4).<br>
@@ -25,8 +26,8 @@ A demo of UIKit beta 4 functions can be found in the [download for the header fi
 [Font Handling](Font)<br>
 [Grids](Grid)<br>
 [List](List)<br>
+[Login Menu](LoginMenu)<br>
 [Mouse Handling](Mouse)<br>
-[Pathed Menu](PathMenu)<br>
 [Progress Bars](Progress)<br>
 [Refresh](refresh)<br>
 [Search Bar](Search)<br>

@@ -1,4 +1,4 @@
-## List
+## List <!-- {docsify-ignore} -->
 #### Info
 > Displays a list of items
 #### Syntax
