@@ -1,4 +1,4 @@
-// UIKit Beta 5 Revision 1 
+// UIKit Beta 5 Revision 2
 // Written by Epsi
 // Last Update: October 1, 2020
 
@@ -71,7 +71,7 @@ namespace UI {
 	// Displays a Text Menu and takes in a string
 	std::string textMenu(COORD pos, std::string title);
 	// Displays a Pathed Menu for taking back to back input
-	std::vector<std::string> pathMenu(COORD pos, const char* choice, ...);
+	std::vector<std::string> loginMenu(COORD pos, const char* choice, ...);
 	// Displays a menu that accpets a boolean value
 	bool boolMenu(COORD pos, std::string title);
 	// Displays a Search bar
@@ -89,7 +89,6 @@ namespace UI {
 		void update(COORD pos, float value);
 		void write_progress(COORD pos);
 	private:
-		std::mutex mutex_;
 		float progress_{ 0.0f };
 		size_t bar_width_{ 60 };
 		std::string fill_{ "#" }, remainder_{ " " }, status_text_{ "" };

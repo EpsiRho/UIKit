@@ -1,8 +1,8 @@
-// UIKit Beta 5 Revision 1 
+// UIKit Beta 5 Revision 2
 // Written by Epsi
 // Last Update: October 1, 2020
 
-#include "UIKit-b4.h"
+#include "UIKit-b5.h"
 
 // Border Defs
 char vLine = 179;
@@ -17,6 +17,7 @@ char cGrid = 197;
 char tGrid = 194;
 char bGrid = 193;
 char shade = 177;
+char cube = 254;
 constexpr char kUp = 72;
 constexpr char kDown = 80;
 constexpr char kLeft = 75;
@@ -605,14 +606,13 @@ std::string UI::textMenu(COORD pos, std::string title) {
     COORD loc;
     char in = ' ';
     char last = ' ';
-    std::string finished = "";
     int cur;
     title = title + ":";
 
     // Output the Top of the Menu
     cursor(pos.X, pos.Y);
     fwrite(&tlCorner, 1, 1, stdout);
-    for (int i = 0; i < title.size() + finished.size() + 4; i++) {
+    for (int i = 0; i < title.size() + 4; i++) {
         fwrite(&hLine, 1, 1, stdout);
     }
     fwrite(&trCorner, 1, 1, stdout);
@@ -632,7 +632,7 @@ std::string UI::textMenu(COORD pos, std::string title) {
     // Output the Bottom of the Menu
     cursor(pos.X, pos.Y);
     fwrite(&blCorner, 1, 1, stdout);
-    for (int i = 0; i < title.size() + finished.size() + 4; i++) {
+    for (int i = 0; i < title.size() + 4; i++) {
         fwrite(&hLine, 1, 1, stdout);
     }
     fwrite(&brCorner, 1, 1, stdout);
@@ -645,95 +645,8 @@ std::string UI::textMenu(COORD pos, std::string title) {
     fgets(buffer, sizeof(buffer), stdin);
     return buffer;
 }
-std::vector<std::string> UI::pathMenu(COORD pos, const char* choice, ...) {
-    // Vars
-    std::string pass;
-    std::vector<std::string> items;
-    std::vector<std::string> send;
-    char in = ' ';
-    std::string finished = "";
-    int longest;
-    int usr_input;
-    COORD origionLoc = pos;
-    COORD loc;
-
-    hideCursor();
-
-    // Grab Function Args
-    va_list arguments;
-    for (va_start(arguments, choice); choice != NULL; choice = va_arg(arguments, const char*)) {
-        pass = choice;
-        items.push_back(pass);
-    }
-    va_end(arguments);
-
-    for (int a = 0; a < items.size(); a++) {
-
-        //ClearScreen();
-        // Output the Top of the Menu
-        cursor(pos.X, pos.Y);
-        std::cout << tlCorner;
-        for (int i = 0; i < items[a].size() + finished.size() + 4; i++) {
-            std::cout << hLine;
-        }
-        std::cout << trCorner << std::endl;
-        pos.Y++;
-
-        // Output center
-        cursor(pos.X, pos.Y);
-        std::cout << vLine << " " << items[a] << ": " << finished << " " << vLine << std::endl;
-        pos.Y++;
-
-        // Output the Bottom of the Menu
-        cursor(pos.X, pos.Y);
-        std::cout << blCorner;
-        for (int i = 0; i < items[a].size() + finished.size() + 4; i++) {
-            std::cout << hLine;
-        }
-        std::cout << brCorner << std::endl;
-        pos.Y++;
-
-        // Update Menu Border
-        while (in != '\r') {
-            cursor(pos.X, pos.Y);
-            in = _getch();
-            if (in == '\b' && finished.size() > 0) {
-                finished.erase(finished.begin() + finished.size() - 1);
-                origionLoc = getConsoleCursorPosition();
-                loc = origionLoc;
-                cursor(loc.X + (finished.size() + items[a].size()) + 5, loc.Y - 3);
-                std::cout << hLine << trCorner << " " << "  ";
-                loc = getConsoleCursorPosition();
-                cursor(loc.X - finished.size() - 5, loc.Y + 1);
-                std::cout << finished << " " << vLine << "     ";;
-                loc = getConsoleCursorPosition();
-                cursor(loc.X - 7, loc.Y + 1);
-                std::cout << hLine << brCorner << " " << "  ";
-                cursor(origionLoc.X, origionLoc.Y);
-            }
-            else if(in != '\b' && in != '\r'){
-                finished += in;
-                origionLoc = getConsoleCursorPosition();
-                loc = origionLoc;
-                cursor(loc.X + (finished.size() + items[a].size()) + 3, loc.Y - 3);
-                std::cout << hLine << hLine << hLine << trCorner;
-                loc = getConsoleCursorPosition();
-                cursor(loc.X - finished.size() - 2, loc.Y + 1);
-                std::cout << finished << " " << vLine;
-                loc = getConsoleCursorPosition();
-                cursor(loc.X - 3, loc.Y + 1);
-                std::cout << hLine << hLine << brCorner;
-                cursor(origionLoc.X, origionLoc.Y);
-            }
-        }
-        //finished.erase(finished.begin() + finished.size() - 1);
-        send.push_back(finished);
-        in = ' ';
-        finished = "";
-    }
-    clearScreen();
-    showCursor();
-    return send;
+std::vector<std::string> UI::loginMenu(COORD pos, const char* choice, ...) {
+    throw OSS_UNIMPLEMENTED;
 }
 bool UI::boolMenu(COORD pos, std::string title) {
     // Vars
@@ -745,56 +658,65 @@ bool UI::boolMenu(COORD pos, std::string title) {
 
     // Output Top Bar
     cursor(pos.X, pos.Y);
-    std::cout << tlCorner;
+    fwrite(&tlCorner, 1, 1, stdout);
     for (int i = 0; i < title.size() + 2; i++) {
-        std::cout << hLine;
+        fwrite(&hLine, 1, 1, stdout);
     }
-    std::cout << trCorner << std::endl;
+    fwrite(&trCorner, 1, 1, stdout);
+    fwrite("\n", 1, 1, stdout);
     pos.Y++;
 
     // Center
     cursor(pos.X, pos.Y);
     std::cout << vLine << " " << title << " " << vLine << std::endl;
+    fwrite(&vLine + ' ', 2, 1, stdout);
+    fwrite(title.c_str(), title.size(), 1, stdout);
+    fwrite(' ' + &vLine + '\n', 3, 1, stdout);
     pos.Y++;
     cursor(pos.X, pos.Y);
-    std::cout << vLine << " " << "(*) Yes"; 
+    fwrite(&vLine, 1, 1, stdout);
+    fwrite(" (*) Yes", 8, 1, stdout);
+
     for (int i = 0; i < title.size() - 8 + 2; i++) {
-        std::cout << " ";
+        fwrite(" ", 1, 1, stdout);
     }
-    std::cout << vLine << std::endl;
+    fwrite(&vLine, 1, 1, stdout);
+    fwrite("\n", 1, 1, stdout);
     pos.Y++;
     cursor(pos.X, pos.Y);
-    std::cout << vLine << " " << "( ) No";
+    fwrite(&vLine, 1, 1, stdout);
+    fwrite(" ( ) No", 7, 1, stdout);
     for (int i = 0; i < title.size() - 7 + 2; i++) {
-        std::cout << " ";
+        fwrite(" ", 1, 1, stdout);
     }
-    std::cout << vLine << std::endl;
+    fwrite(&vLine, 1, 1, stdout);
+    fwrite("\n", 1, 1, stdout);
     pos.Y++;
 
     // Output Bottom Bar
     cursor(pos.X, pos.Y);
-    std::cout << blCorner;
+    fwrite(&blCorner, 1, 1, stdout);
     for (int i = 0; i < title.size() + 2; i++) {
-        std::cout << hLine;
+        fwrite(&hLine, 1, 1, stdout);
     }
-    std::cout << brCorner;
+    fwrite(&brCorner, 1, 1, stdout);
 
     while (1) {
         switch (choice) {
         case true:
             loc = getConsoleCursorPosition();
             cursor(loc.X - title.size() - 1, loc.Y - 2);
-            std::cout << "*";
+            fwrite("*", 1, 1, stdout);
             cursor(loc.X - title.size() - 1, loc.Y - 1);
-            std::cout << " ";
+            fwrite(" ", 1, 1, stdout);
             cursor(loc.X, loc.Y);
             break;
         case false:
             loc = getConsoleCursorPosition();
             cursor(loc.X - title.size() - 1, loc.Y - 2);
-            std::cout << " ";
+            fwrite(" ", 1, 1, stdout);
             cursor(loc.X - title.size() - 1, loc.Y - 1);
-            std::cout << "*";
+            fwrite("*", 1, 1, stdout);
             cursor(loc.X, loc.Y);
             break;
         }
@@ -846,7 +768,7 @@ std::string UI::searchBar(COORD pos, std::vector<std::string> list) {
     }
 
     UI::cursor(pos.X, pos.Y);
-    std::cout << ">";
+    fwrite(">", 1, 1, stdout);
 
     while (1) {
         ReadConsoleInput(hin, &InputRecord, 1, &Events);
@@ -856,22 +778,22 @@ std::string UI::searchBar(COORD pos, std::vector<std::string> list) {
                 if (in == 0x08 && input.size() > 0) {
                     tPos = UI::getConsoleCursorPosition();
                     UI:cursor(tPos.X-1, tPos.Y);
-                    std::cout << " ";
+                    fwrite(" ", 1, 1, stdout);
                     UI::cursor(pos.X + 1, pos.Y+1);
                     for (int i = 0; i < 8; i++) {
                         for (int k = 0; k < longest+6; k++) {
-                            std::cout << " ";
+                            fwrite(" ", 1, 1, stdout);
                         }
-                        std::cout << "\n";
+                        fwrite("\n", 1, 1, stdout);
                     }
                     UI::cursor(pos.X + 1, pos.Y);
                     input.pop_back();
-                    std::cout << input;
+                    fwrite(input.c_str(), input.size(), 1, stdout);
                 }
                 else if (in == VK_DOWN && input.size() > 0) {
                     menupos = 1;
                     UI::cursor(smpos.X, smpos.Y+menupos);
-                    std::cout << (char)254;
+                    fwrite(&cube, 1, 1, stdout);
                     while (menupos > 0) {
                         ReadConsoleInput(hin, &InputRecord, 1, &Events);
                         if (InputRecord.EventType == KEY_EVENT) {
@@ -879,7 +801,7 @@ std::string UI::searchBar(COORD pos, std::vector<std::string> list) {
                                 in = InputRecord.Event.KeyEvent.wVirtualKeyCode;
                                 for (int i = 1; i < temp.size()+1; i++) {
                                     UI::cursor(smpos.X, smpos.Y + i);
-                                    std::cout << " ";
+                                    fwrite(" ", 1, 1, stdout);
                                 }
                                 if (in == VK_UP) {
                                     menupos--;
@@ -891,7 +813,7 @@ std::string UI::searchBar(COORD pos, std::vector<std::string> list) {
                                     return temp[menupos-1];
                                 }
                                 UI::cursor(smpos.X, smpos.Y + menupos);
-                                std::cout << (char)254;
+                                fwrite(&cube, 1, 1, stdout);
                             }
                         }
                     }
@@ -904,13 +826,13 @@ std::string UI::searchBar(COORD pos, std::vector<std::string> list) {
                     UI::cursor(pos.X + 1, pos.Y+1);
                     for (int i = 0; i < 8; i++) {
                         for (int k = 0; k < longest+6; k++) {
-                            std::cout << " ";
+                            fwrite(" ", 1, 1, stdout);
                         }
-                        std::cout << "\n";
+                        fwrite("\n", 1, 1, stdout);
                     }
                     UI::cursor(pos.X + 1, pos.Y);
                     input.push_back(in);
-                    std::cout << input;
+                    fwrite(input.c_str(), input.size(), 1, stdout);
                 }
             }
             count = 0;
@@ -928,21 +850,25 @@ std::string UI::searchBar(COORD pos, std::vector<std::string> list) {
             mPos.Y++;
             // Output the Top of the Menu
             cursor(mPos.X, mPos.Y);
-            std::cout << tlCorner;
+            fwrite(&tlCorner, 1, 1, stdout);
             for (int i = 0; i < longest + 3; i++) {
-                std::cout << hLine;
+                fwrite(&hLine, 1, 1, stdout);
             }
-            std::cout << trCorner << std::endl;
+            fwrite(&trCorner, 1, 1, stdout);
+            fwrite("\n", 1, 1, stdout);
             mPos.Y++;
 
             // Output Choices
             for (int i = 0; i < temp.size(); i++) {
                 cursor(mPos.X, mPos.Y);
-                std::cout << vLine << " " << temp[i];
+                fwrite(&vLine, 1, 1, stdout);
+                fwrite(" ", 1, 1, stdout);
+                fwrite(temp[i].c_str(), temp[i].size(), 1, stdout);
                 for (int j = temp[i].size(); j < longest + 2; j++) {
-                    std::cout << " ";
+                    fwrite(" ", 1, 1, stdout);
                 }
-                std::cout << vLine << std::endl;
+                fwrite(&vLine, 1, 1, stdout);
+                fwrite("\n", 1, 1, stdout);
                 mPos.Y++;
                 cursor(mPos.X, mPos.Y);
 
@@ -950,11 +876,11 @@ std::string UI::searchBar(COORD pos, std::vector<std::string> list) {
 
             // Output the Bottom of the Menu
             cursor(mPos.X, mPos.Y);
-            std::cout << blCorner;
+            fwrite(&blCorner, 1, 1, stdout);
             for (int i = 0; i < longest + 3; i++) {
-                std::cout << hLine;
+                fwrite(&hLine, 1, 1, stdout);
             }
-            std::cout << brCorner;
+            fwrite(&brCorner, 1, 1, stdout);
             UI::cursor(tPos.X, tPos.Y);
         }
     }
@@ -962,34 +888,26 @@ std::string UI::searchBar(COORD pos, std::vector<std::string> list) {
 
 //~~ Progress Bars ~~//
 void UI::ProgressBar::set_progress(float value) {
-    std::unique_lock lock{ mutex_ };  // CTAD (C++17)
     progress_ = value;
 }
 void UI::ProgressBar::set_bar_width(size_t width) {
-    std::unique_lock lock{ mutex_ };
     bar_width_ = width;
 }
 void UI::ProgressBar::fill_bar_progress_with(const char& ch) {
-    std::unique_lock lock{ mutex_ };
     fill_ = ch;
 }
 void UI::ProgressBar::fill_bar_remainder_with(const char& ch) {
-    std::unique_lock lock{ mutex_ };
     remainder_ = ch;
 }
 void UI::ProgressBar::set_status_text(const std::string& status) {
-    std::unique_lock lock{ mutex_ };
     status_text_ = status;
 }
 void UI::ProgressBar::update(COORD pos, float value) {
-    std::ostream& os = std::cout;
     cursor(pos.X, pos.Y);
     set_progress(value);
     write_progress(pos);
 }
 void UI::ProgressBar::write_progress(COORD pos) {
-    std::ostream& os = std::cout;
-    std::unique_lock lock{ mutex_ };
 
     // No need to write once progress is 100%
     if (progress_ > 100.0f) return;
@@ -998,24 +916,28 @@ void UI::ProgressBar::write_progress(COORD pos) {
     cursor(pos.X, pos.Y);
 
     // Start bar
-    os << "[";
+    fwrite("[", 1, 1, stdout);
 
     const auto completed = static_cast<size_t>(progress_ * static_cast<float>(bar_width_) / 100.0);
     for (size_t i = 0; i < bar_width_; ++i) {
         if (i <= completed)
-            os << fill_;
+            fwrite(&fill_, 1, 1, stdout);
         else
-            os << remainder_;
+            fwrite(&remainder_, 1, 1, stdout);
     }
 
     // End bar
-    os << "]";
+    fwrite("]", 1, 1, stdout);
 
     // Write progress percentage
-    os << " " << std::min(static_cast<size_t>(progress_), size_t(100)) << "%";
+    std::string percent = std::to_string(std::min(static_cast<size_t>(progress_), size_t(100)));
+    fwrite(" ", 1, 1, stdout);
+    fwrite(percent.c_str(), percent.size(), 1, stdout);
+    fwrite("%", 1, 1, stdout);
 
     // Write status text
-    os << " " << status_text_;
+    fwrite(" ", 1, 1, stdout);
+    fwrite(status_text_.c_str(), status_text_.size(), 1, stdout);
 }
 
 //~~ Mouse Handling ~~//
@@ -1072,12 +994,12 @@ void UI::clipboardText(COORD pos, std::string text, std::string copy) {
         if (p.X >= pos.X && p.X <= pos.X+text.length() && pos.Y == p.Y) {
             cursor(pos);
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
-            std::cout << text;
+            fwrite(text.c_str(), text.size(), 1, stdout);
         }
         else {
             cursor(pos);
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-            std::cout << text;
+            fwrite(text.c_str(), text.size(), 1, stdout);
         }
         if (InputRecord.EventType == MOUSE_EVENT) {
             if (InputRecord.Event.MouseEvent.dwButtonState == FROM_LEFT_1ST_BUTTON_PRESSED) {
@@ -1132,37 +1054,47 @@ int UI::mouseChoiceMenu(COORD pos, std::string title, const char* choice, ...) {
 
     // Output the Top of the Menu
     cursor(pos.X, pos.Y);
-    std::cout << tlCorner;
+    fwrite(&tlCorner, 1, 1, stdout);
     for (int i = 0; i < longest + 6; i++) {
-        std::cout << hLine;
+        fwrite(&hLine, 1, 1, stdout);
     }
-    std::cout << trCorner << std::endl;
+    fwrite(&trCorner, 1, 1, stdout);
+    fwrite("\n", 1, 1, stdout);
     pos.Y++;
 
     // Output Title
     cursor(pos.X, pos.Y);
-    std::cout << vLine << " " << title;
+    fwrite(&vLine, 1, 1, stdout);
+    fwrite(" ", 1, 1, stdout);
+    fwrite(title.c_str(), title.size(), 1, stdout);
     for (int i = title.size(); i < longest + 5; i++) {
-        std::cout << " ";
+        fwrite(" ", 1, 1, stdout);
     }
-    std::cout << vLine << std::endl;
+    fwrite(&vLine, 1, 1, stdout);
+    fwrite("\n", 1, 1, stdout);
+
     pos.Y++;
     cursor(pos.X, pos.Y);
-    std::cout << lGrid;
+    fwrite(&lGrid, 1, 1, stdout);
     for (int i = 0; i < longest + 6; i++) {
-        std::cout << hLine;
+        fwrite(&hLine, 1, 1, stdout);
     }
-    std::cout << rGrid << std::endl;
+    fwrite(&rGrid, 1, 1, stdout);
+    fwrite("\n", 1, 1, stdout);
     pos.Y++;
 
     // Output Choices
     for (int i = 0; i < items.size(); i++) {
         cursor(pos.X, pos.Y);
-        std::cout << vLine << " " << items[i];
+        fwrite(&vLine, 1, 1, stdout);
+        fwrite(" ", 1, 1, stdout);
+        fwrite(items[i].c_str(), items[i].size(), 1, stdout);
         for (int j = items[i].size(); j < longest + 2; j++) {
-            std::cout << " ";
+            fwrite(" ", 1, 1, stdout);
         }
-        std::cout << "   " << vLine << std::endl;
+        fwrite("   ", 3, 1, stdout);
+        fwrite(&vLine, 1, 1, stdout);
+        fwrite("\n", 1, 1, stdout);
         pos.Y++;
         cursor(pos.X, pos.Y);
 
@@ -1170,11 +1102,11 @@ int UI::mouseChoiceMenu(COORD pos, std::string title, const char* choice, ...) {
 
     // Output the Bottom of the Menu
     cursor(pos.X, pos.Y);
-    std::cout << blCorner;
+    fwrite(&blCorner, 1, 1, stdout);
     for (int i = 0; i < longest + 6; i++) {
-        std::cout << hLine;
+        fwrite(&hLine, 1, 1, stdout);
     }
-    std::cout << brCorner;
+    fwrite(&brCorner, 1, 1, stdout);
 
 
     // User input
@@ -1198,15 +1130,13 @@ int UI::mouseChoiceMenu(COORD pos, std::string title, const char* choice, ...) {
         for (int i = 0; i < points.size(); i++) {
             UI::cursor(points[i].X - longest - 3, points[i].Y);
             SetConsoleTextAttribute(hout, 8);
-            //std::cout << sel << ptr;
-            std::cout << items[i];
+            fwrite(items[i].c_str(), items[i].size(), 1, stdout);
         }
         for (int i = 0; i < points.size(); i++) {
             if (p.X >= points[i].X - longest - 2 && p.X <= points[i].X && p.Y == points[i].Y) {
                 UI::cursor(points[i].X - longest - 3, points[i].Y);
                 SetConsoleTextAttribute(hout, 11);
-                //std::cout << sel << ptr;
-                std::cout << items[i];
+                fwrite(items[i].c_str(), items[i].size(), 1, stdout);
             }
         }
         if (InputRecord.EventType == MOUSE_EVENT) {
@@ -1216,11 +1146,12 @@ int UI::mouseChoiceMenu(COORD pos, std::string title, const char* choice, ...) {
                     if (p.X >= points[i].X - longest - 2 && p.X <= points[i].X && p.Y == points[i].Y) {
                         UI::cursor(points[i].X - longest - 4, points[i].Y);
                         SetConsoleTextAttribute(hout, 187);
-                        std::cout << " " << items[i];
+                        fwrite(" ", 1, 1, stdout);
+                        fwrite(items[i].c_str(), items[i].size(), 1, stdout);
                         for (int k = items[i].size(); k < longest + 2; k++) {
-                            std::cout << " ";
+                            fwrite(" ", 1, 1, stdout);
                         }
-                        std::cout << "   ";
+                        fwrite("   ", 3, 1, stdout);
                         UI::cursor(p.X, (p.Y+4) - i);
                         showCursor();
                         SetConsoleTextAttribute(hout, 15);

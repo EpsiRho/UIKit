@@ -19,15 +19,27 @@
 - Menu titles being larger than choices causes clipping issues<br>
 - Color not working after syntax change<br>
 
-## Beta 5 Revision 1<br>
-### Fixes<br>
-- Fixed Text Menu<br>
-- Fixed broken input after mouse input disable<br>
-- Switched from std::cout to fwrite(through TextMenu, pathMenu and below needs to be finished)<br>
-
 ## Plans for Beta 5 Release<br>
 - Functions with Args overload with vectors.<br>
 - Demo Application Complete<br>
 - Editable List<br>
 - Screenshot<br>
 - Multiple Progres Bars<br>
+- loginMenu<br>
+
+## Beta 5 Revision 1<br>
+### Fixes<br>
+- Fixed Text Menu<br>
+- Fixed broken input after mouse input disable<br>
+- Switched from std::cout to fwrite(through TextMenu, pathMenu and below needs to be finished)<br>
+
+## Beta 5 Revision 2<br>
+### Removed<br>
+- pathMenu has been removed. Will be replaced by loginMenu Function in Revision 3.<br>
+### Docs<br>
+- ProgressBar docs now have info on set_status_text<br>
+### Demo<br>
+- Demo now shows set_status_text example<br>
+- pathMenu Choice replaced with loginMenu, Does not currently function<br>
+### Improvements<br>
+- all std::cout removed and switched to fwrite<br>

@@ -11,9 +11,11 @@
 * Set the character that the bar will be filled with:<br>
 `varName.fill_bar_progress_with(const char& ch);`
 * Set the character that the bar starts with:<br>
-`fill_bar_remainder_with(const char& ch);`
+`varName.fill_bar_remainder_with(const char& ch);`
 * Update the Progress Bar:<br>
-`void update(COORD pos, float value);`
+`varName.update(COORD pos, float value);`
+* Set the Status Text displayed at the end of the bar:<br>
+`varName.set_satus_text(std::string);`
 
 #### Example
 ```C++
