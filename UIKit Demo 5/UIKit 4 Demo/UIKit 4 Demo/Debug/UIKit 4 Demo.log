@@ -1,0 +1,67 @@
+﻿  Source.cpp
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\Source.cpp(132,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  UIKit-b4.cpp
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(8,14): warning C4309: 'initializing': truncation of constant value
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(9,14): warning C4309: 'initializing': truncation of constant value
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(10,17): warning C4309: 'initializing': truncation of constant value
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(11,17): warning C4309: 'initializing': truncation of constant value
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(12,17): warning C4309: 'initializing': truncation of constant value
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(13,17): warning C4309: 'initializing': truncation of constant value
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(14,14): warning C4309: 'initializing': truncation of constant value
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(15,14): warning C4309: 'initializing': truncation of constant value
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(16,14): warning C4309: 'initializing': truncation of constant value
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(17,14): warning C4309: 'initializing': truncation of constant value
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(18,14): warning C4309: 'initializing': truncation of constant value
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(19,14): warning C4309: 'initializing': truncation of constant value
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(245,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(314,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(317,23): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(340,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(344,23): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(384,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(417,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(480,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(486,17): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(516,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(544,27): warning C4018: '<=': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(464,9): warning C4101: 'usr_input': unreferenced local variable
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(585,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(599,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(574,11): warning C4101: 'loc': unreferenced local variable
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(573,11): warning C4101: 'origionLoc': unreferenced local variable
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(578,9): warning C4101: 'cur': unreferenced local variable
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(633,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(639,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(653,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(619,9): warning C4101: 'usr_input': unreferenced local variable
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(618,9): warning C4101: 'longest': unreferenced local variable
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(712,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(724,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(731,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(740,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(799,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(805,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(806,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(818,48): warning C4244: '=': conversion from 'WORD' to 'char', possible loss of data
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(842,64): warning C4244: '=': conversion from 'WORD' to 'char', possible loss of data
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(843,51): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(850,67): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(881,35): warning C4804: '>=': unsafe use of type 'bool' in operation
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(882,35): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(902,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(821,23): warning C4102: 'UI': unreferenced label
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(1035,33): warning C4018: '<=': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(1047,41): warning C4018: '<=': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(1084,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(1090,17): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(1122,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(1149,16): warning C4309: 'initializing': truncation of constant value
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(1150,16): warning C4309: 'initializing': truncation of constant value
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(1151,16): warning C4309: 'initializing': truncation of constant value
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(1154,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(1161,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(1167,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(1178,35): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jhset\source\repos\UIKit 4 Demo\UIKit 4 Demo\UIKit-b4.cpp(1063,9): warning C4101: 'usr_input': unreferenced local variable
+  Generating Code...
+  UIKit 4 Demo.vcxproj -> C:\Users\jhset\source\repos\UIKit 4 Demo\Debug\UIKit 4 Demo.exe

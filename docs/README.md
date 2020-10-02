@@ -8,7 +8,7 @@ Changelog can be found [Here](CHANGELOG)<br>
 ## Using UIKit
 To use UIKit downlaod the zip file from [here](https://github.com/EpsiRho/UIKit/releases/tag/b-4.4).<br>
 Get the source code from the GitHub.<br>
-Extract the zip file into your project folder and include *UIKit-b4.h* into your project.<br>
+Extract the zip file into your project folder and include *UIKit-b5.h* into your project.<br>
 ***Make sure your project is using c++17 or higher.***<br>
 You can now use UIKit functions under the namespace *UI*.
 

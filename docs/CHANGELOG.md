@@ -41,4 +41,11 @@
 ### Additions
 - [Login Menu](https://epsirho.github.io/UIKit/#/LoginMenu)<br>
 ### Fixes
-- Cleaned up unneeded code.
+- Cleaned up unneeded code.<br>
+
+## Beta 5 Revision 4
+### Fixes
+- Text Menu Left '\n' in the returned string<br>
+- Fixed Progress Bar character errors after update to fwrite
+### Changes
+- loginMenu gets an updated look
