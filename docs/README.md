@@ -1,4 +1,4 @@
-# UIKit Beta 5 Revision 3
+# UIKit Beta 5 Release
 
 ## About
 UIKit is a C++ Library for making console GUIs with ease.<br>

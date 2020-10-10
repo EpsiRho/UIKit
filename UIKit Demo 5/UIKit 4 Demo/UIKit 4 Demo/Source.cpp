@@ -1,6 +1,6 @@
-// UIKit Beta 5 Revision 4 Demo Application
+// UIKit Beta 5 Revision 5 Demo Application
 // Written by Epsi
-// Last Update: October 2, 2020
+// Last Update: October 9, 2020
 
 #include <iostream>
 #include <windows.h>
@@ -43,8 +43,8 @@ int main(void) {
 	// Main Loop
 	while (1) {
 		UI::enableMouseHandling(); // Enable Mouse Handling Mode
-		int usr_input = UI::mouseChoiceMenu(pos, "UIKit Demo (Page 1)", "Exit", "Bool Menu", "Choice Menu", "Clipboard", "Color", "Cursor Handling", 
-												 "Font Handling", "Grids", "List", "Login Menu", "Progress Bars", "Search Bar", "Text Menu",NULL);
+		int usr_input = UI::mouseChoiceMenu(pos, "UIKit Demo (55505)", "Exit", "Bool Menu", "Choice Menu", "Clipboard", "Color", "Cursor Handling", 
+											 "Font Handling", "Grids", "List", "Login Menu", "Progress Bars", "Search Bar", "Text Menu", "File Edit",NULL);
 		switch (usr_input) {
 			case 0:
 				exit(1);
@@ -164,6 +164,14 @@ int main(void) {
 				UI::enableMouseHandling();
 				UI::clearScreen();
 				break;
+			case 13:
+				UI::disabledMouseHandling();
+				UI::clearScreen();
+				UI::editFile("C:\\Users\\jhset\\Desktop\\Utils\\KMSpico Portable\\ReadMe KMSpico Portable.txt");
+				UI::clearScreen();
+				UI::enableMouseHandling();
+				UI::clearScreen();
+
 		}
 	}
 }

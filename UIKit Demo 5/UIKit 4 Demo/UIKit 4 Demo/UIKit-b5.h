@@ -1,6 +1,6 @@
-// UIKit Beta 5 Revision 4
+// UIKit Beta 5 Revision 5
 // Written by Epsi
-// Last Update: October 2, 2020
+// Last Update: October 9, 2020
 
 #pragma once
 #define NOMINMAX
@@ -16,6 +16,7 @@
 #include <locale>
 #include <codecvt>
 #include <cstdint> 
+#include <fstream>
 
 namespace UI {	
 //~~ Console Handling ~~//
@@ -49,6 +50,7 @@ namespace UI {
 	COORD getWindowSize();
 	void clearPos(int x1, int y1, int x2, int y2);
 	void refresh(int x1, int y1, int x2, int y2, std::string chars);
+	void scrollConsoleBuffer(int x1, int y1, int x2, int y2, int x3, int y3);
 
 //~~ Font Handling ~~//
 	void setFontSize(int FontSize);
@@ -64,6 +66,7 @@ namespace UI {
 	// Copies a string to the clipboard
 	void copyToClipboard(std::string str);
 	std::string copyFromClipboard();
+	void editFile(std::string filepath);
 	
 //~~ Menus ~~//
 	// Displays a Choice Menu and takes in an int

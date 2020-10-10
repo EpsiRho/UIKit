@@ -1,28 +1,28 @@
-// UIKit Beta 5 Revision 4
+// UIKit Beta 5 Revision 5
 // Written by Epsi
-// Last Update: October 2, 2020
+// Last Update: October 9, 2020
 
 #include "UIKit-b5.h"
 
 // Border Defs
-char vLine = 179;
-char hLine = 196;
-char tlCorner = 218;
-char trCorner = 191;
-char blCorner = 192;
-char brCorner = 217;
-char lGrid = 195;
-char rGrid = 180;
-char cGrid = 197;
-char tGrid = 194;
-char bGrid = 193;
-char shade = 177;
-char cube = 254;
-char lHalf = 221;
-constexpr char kUp = 72;
-constexpr char kDown = 80;
-constexpr char kLeft = 75;
-constexpr char kRight = 77;
+constexpr char vLine = (char)179;
+constexpr char hLine = (char)196;
+constexpr char tlCorner = (char)218;
+constexpr char trCorner = (char)191;
+constexpr char blCorner = (char)192;
+constexpr char brCorner = (char)217;
+constexpr char lGrid = (char)195;
+constexpr char rGrid = (char)180;
+constexpr char cGrid = (char)197;
+constexpr char tGrid = (char)194;
+constexpr char bGrid = (char)193;
+constexpr char shade = (char)177;
+constexpr char cube = (char)254;
+constexpr char lHalf = (char)221;
+constexpr char kUp = (char)72;
+constexpr char kDown = (char)80;
+constexpr char kLeft = (char)75;
+constexpr char kRight = (char)77;
 constexpr char kEnter = '\r';
 
 HANDLE hout = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -185,6 +185,78 @@ void UI::refresh(int x1, int y1, int x2, int y2, std::string chars) {
             fwrite(&chars[count], 1, 1, stdout);
             count++;
         }
+    }
+}
+void UI::scrollConsoleBuffer(int x1, int y1, int x2, int y2, int x3, int y3) {
+    SMALL_RECT srctScrollRect, srctClipRect;
+    CHAR_INFO chiFill;
+    COORD coordDest;
+
+    // The scrolling rect
+
+    srctScrollRect.Left = x1;
+    srctScrollRect.Top = y1;
+    srctScrollRect.Right = x2;
+    srctScrollRect.Bottom = y2;
+
+    // The destination for the scroll rect
+    coordDest.X = x3;
+    coordDest.Y = y3;
+
+    // Clipping rect is the same as the scrooling rect
+    srctClipRect = srctScrollRect;
+
+    // Fill the bottom row with blanks. 
+    chiFill.Attributes = 0;
+    chiFill.Char.AsciiChar = ' ';
+
+    // Scroll
+    if (!ScrollConsoleScreenBufferA(
+        hout,         // screen buffer handle 
+        &srctScrollRect, // scrolling rectangle 
+        &srctClipRect,   // clipping rectangle 
+        coordDest,       // top left destination cell 
+        &chiFill))       // fill character and color
+    {
+        return;
+    }
+}
+int ScrollByAbsoluteCoord(int iRows)
+{
+    CONSOLE_SCREEN_BUFFER_INFO csbiInfo;
+    SMALL_RECT srctWindow;
+
+    // Get the current screen buffer window position. 
+
+    if (!GetConsoleScreenBufferInfo(hout, &csbiInfo))
+    {
+        printf("GetConsoleScreenBufferInfo (%d)\n", GetLastError());
+        return 0;
+    }
+
+    // Check whether the window is too close to the screen buffer top
+
+    if (csbiInfo.srWindow.Bottom >= iRows)
+    {
+        srctWindow.Top = (SHORT)iRows;     // move top up
+        srctWindow.Bottom = (SHORT)iRows;  // move bottom up 
+        srctWindow.Left = 0;         // no change 
+        srctWindow.Right = 0;        // no change 
+
+        if (!SetConsoleWindowInfo(
+            hout,          // screen buffer handle 
+            FALSE,            // relative coordinates
+            &srctWindow))     // specifies new location 
+        {
+            printf("SetConsoleWindowInfo (%d)\n", GetLastError());
+            return 0;
+        }
+        return iRows;
+    }
+    else
+    {
+        printf("\nCannot scroll; the window is too close to the top.\n");
+        return 0;
     }
 }
 
@@ -473,6 +545,262 @@ std::string UI::copyFromClipboard() {
     GlobalUnlock(hData);
     CloseClipboard();
     return text;
+}
+void UI::editFile(std::string filepath) {
+    /*
+        buffer the file
+    */
+
+    //Vars
+    std::vector<std::string> lines;
+    std::string text;
+    std::ifstream file;
+    std::ofstream out;
+    int longest;
+    char vls[2] = { vLine, '\n' };
+    COORD pos = { 0,0 };
+    COORD screenMax = getWindowSize();
+    CONSOLE_SCREEN_BUFFER_INFO csbiInfo;
+    SMALL_RECT srctScrollRect, srctClipRect;
+    CHAR_INFO chiFill;
+    COORD coordDest;
+
+    // Read file into vector
+    file.open(filepath);
+    if (!file.is_open()) {
+        return;
+    }
+    while (getline(file, text)) {
+        lines.push_back(text);
+    }
+    file.close();
+
+    if (lines.size() == 0) {
+        lines.push_back("");
+    }
+
+    // Output file
+    for (int i = 0; i < lines.size(); i++) {
+        fwrite(lines[i].c_str(), lines[i].size(), 1, stdout);
+        fwrite("\n", 1, 1, stdout);
+    }
+
+    // Read keyboard input
+    INPUT_RECORD InputRecord;
+    DWORD Events;
+    cursor(pos);
+    while (1) {
+        ReadConsoleInput(hin, &InputRecord, 1, &Events);
+        if (InputRecord.EventType == KEY_EVENT) { 
+            if (InputRecord.Event.KeyEvent.bKeyDown) {
+                if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_LEFT)
+                {
+                    if (pos.X != 0) {
+                        pos.X--;
+                        cursor(pos);
+                    }
+                    else if (pos.Y != 0) {
+                        pos.Y--;
+                        pos.X = lines[pos.Y].size();
+                        cursor(pos);
+                    }
+                }
+                else if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_UP)
+                {
+                    if (pos.Y <= 4 && pos.Y != 0) {
+                        ScrollByAbsoluteCoord(-1);
+                        pos.Y--;
+                        cursor(pos);
+                    }
+                    else if (pos.Y != 0) {
+                        pos.Y--;
+                        cursor(pos);
+                    }
+                }
+                else if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_RIGHT)
+                {
+                    if (pos.X < lines[pos.Y].size()) {
+                        pos.X++;
+                        cursor(pos);
+                    }
+                    else {
+                        pos.X = 0;
+                        pos.Y++;
+                        cursor(pos);
+                    }
+                }
+                else if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_DOWN)
+                {
+                    if(pos.Y >= screenMax.Y && pos.Y != lines.size() - 1){
+                        ScrollByAbsoluteCoord(1);
+                        pos.Y++;
+                        cursor(pos);
+                    }
+                    else if (pos.Y != lines.size() - 1) {
+                        pos.Y++;
+                        cursor(pos);
+                    }
+                }
+                else if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_ESCAPE) {
+                    scrollConsoleBuffer(0, 0, screenMax.X, screenMax.Y, 0, 1);
+                    cursor(0, 0);
+                    fwrite("| ", 2, 1, stdout);
+                    SetConsoleTextAttribute(hout, 11);
+                    fwrite("Save", 4, 1, stdout);
+                    SetConsoleTextAttribute(hout, 15);
+                    fwrite("   Exit", 7, 1, stdout);
+                    fwrite(" |", 2, 1, stdout);
+                    int curPos = 0;
+                    while (1) {
+                        ReadConsoleInput(hin, &InputRecord, 1, &Events);
+                        if (InputRecord.EventType == KEY_EVENT) {
+                            if (InputRecord.Event.KeyEvent.bKeyDown) {
+                                if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_LEFT) {
+                                    curPos = 0;
+                                    cursor(0, 0);
+                                    fwrite("| ", 2, 1, stdout);
+                                    SetConsoleTextAttribute(hout, 11);
+                                    fwrite("Save", 4, 1, stdout);
+                                    SetConsoleTextAttribute(hout, 15);
+                                    fwrite("   Exit", 7, 1, stdout);
+                                    fwrite(" |", 2, 1, stdout);
+                                }
+                                else if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_RIGHT) {
+                                    curPos = 1;
+                                    cursor(0, 0);
+                                    SetConsoleTextAttribute(hout, 15);
+                                    fwrite("| ", 2, 1, stdout);
+                                    fwrite("Save   ", 7, 1, stdout);
+                                    SetConsoleTextAttribute(hout, 11);
+                                    fwrite("Exit", 4, 1, stdout);
+                                    SetConsoleTextAttribute(hout, 15);
+                                    fwrite(" |", 2, 1, stdout);
+                                }
+                                else if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_RETURN) {
+                                    if (curPos == 0) {
+                                        out.open(filepath);
+                                        for (int i = 0; i < lines.size() - 1; i++) {
+                                            out << lines[i] << "\n";
+                                        }
+                                        out << lines[lines.size() - 1];
+                                        out.close();
+                                        scrollConsoleBuffer(0, 0, screenMax.X, screenMax.Y, 0, -1);
+                                        cursor(pos);
+                                        break;
+                                    }
+                                    else {
+                                        break;
+                                    }
+                                }
+                                else if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_ESCAPE) {
+                                    scrollConsoleBuffer(0, 0, screenMax.X, screenMax.Y, 0, -1);
+                                    cursor(pos);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    if (curPos == 1) {
+                        break;
+                    }
+                }
+                else if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_RETURN) {
+                    scrollConsoleBuffer(0, pos.Y+1, screenMax.X, screenMax.Y, 0, pos.Y+2);
+
+                    if (pos.X >= lines[pos.Y].size()) {
+                        pos.Y++;
+                        pos.X = 0;
+                        cursor(pos);
+                        lines.insert(lines.begin() + pos.Y,"");
+                    }
+                    else {
+                        std::string split = lines[pos.Y].substr(pos.X, lines[pos.Y].size());
+                        for (int i = 0; i < split.size(); i++) {
+                            fwrite(" ", 1, 1, stdout);
+                        }
+                        lines[pos.Y].erase(pos.X, lines[pos.Y].size());
+                        pos.Y++;
+                        pos.X = 0;
+                        lines.insert(lines.begin() + pos.Y, split);
+                        cursor(pos);
+                        fwrite(lines[pos.Y].c_str(), lines[pos.Y].size(), 1, stdout);
+                        cursor(pos);
+                    }
+                }
+                else if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_SHIFT || InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_PRIOR || InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_NEXT || InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_MENU || InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_CONTROL) {
+
+                }
+                else if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_BACK) {
+                    if (pos.X == 0 && pos.Y != 0) {
+                        if (lines[pos.Y].size() != 0) {
+                            lines[pos.Y - 1].erase(lines[pos.Y - 1].begin() + lines[pos.Y - 1].size() - 1);
+                            pos.X = lines[pos.Y - 1].size();
+                            lines[pos.Y - 1].append(lines[pos.Y]);
+                            lines.erase(lines.begin() + (pos.Y));
+                            scrollConsoleBuffer(0, pos.Y, screenMax.X, screenMax.Y, 0, pos.Y - 1);
+                            pos.Y--;
+                            cursor(0, pos.Y);
+                            fwrite(lines[pos.Y].c_str(), lines[pos.Y].size(), 1, stdout);
+                            cursor(pos);
+                        }
+                        else {
+                            lines.erase(lines.begin() + pos.Y);
+                            pos.Y--;
+                            pos.X = lines[pos.Y].size();
+                            cursor(pos);
+                        }
+                    }
+                    else {
+                        lines[pos.Y].erase(lines[pos.Y].begin() + pos.X-1);
+                        scrollConsoleBuffer(pos.X-1, pos.Y, lines[pos.Y].size(), pos.Y, pos.X - 2, pos.Y);
+                        pos.X--;
+                        cursor(pos);
+                    }
+                }
+                else if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_DELETE) {
+                    if (pos.X == 0) {
+
+                    }
+                    else {
+                        lines[pos.Y].erase(lines[pos.Y].begin() + pos.X);
+                        scrollConsoleBuffer(pos.X, pos.Y, lines[pos.Y].size(), pos.Y, pos.X - 1, pos.Y);
+                    }
+                }
+                else if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_HOME) {
+                    cursor(0, pos.Y);
+                }
+                else if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_END) {
+                    cursor(lines[pos.Y].size(), pos.Y);
+                }
+                else if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_TAB) {
+                    lines[pos.Y].insert(pos.X, (std::string)"    ");
+                    pos.X = pos.X + 4;
+                    cursor(0, pos.Y);
+                    fwrite(lines[pos.Y].c_str(), lines[pos.Y].size(), 1, stdout);
+                    cursor(pos);
+                }
+                else {
+                    pos.X++;
+                    if (pos.X >= lines[pos.Y].size()) {
+                        lines[pos.Y].append(&InputRecord.Event.KeyEvent.uChar.AsciiChar);
+                        fwrite(&InputRecord.Event.KeyEvent.uChar, 1, 1, stdout);
+                    }
+                    else if (lines[pos.Y].size() == 0) {
+                        lines[pos.Y] = &InputRecord.Event.KeyEvent.uChar.AsciiChar;
+                        fwrite(&InputRecord.Event.KeyEvent.uChar, 1, 1, stdout);
+                    }
+                    else {
+                        lines[pos.Y].insert(lines[pos.Y].begin() + pos.X - 1, InputRecord.Event.KeyEvent.uChar.AsciiChar);
+                        cursor(0, pos.Y);
+                        fwrite(lines[pos.Y].c_str(), lines[pos.Y].size(), 1, stdout);
+                    }
+                    cursor(pos);
+                }
+            }
+
+        }
+    }
+
 }
 
 //~~ Menus ~~//
@@ -840,7 +1168,7 @@ std::string UI::searchBar(COORD pos, std::vector<std::string> list) {
                         ReadConsoleInput(hin, &InputRecord, 1, &Events);
                         if (InputRecord.EventType == KEY_EVENT) {
                             if (InputRecord.Event.KeyEvent.bKeyDown) {
-                                in = InputRecord.Event.KeyEvent.wVirtualKeyCode;
+                                in = InputRecord.Event.KeyEvent.uChar.AsciiChar;
                                 for (int i = 1; i < temp.size()+1; i++) {
                                     UI::cursor(smpos.X, smpos.Y + i);
                                     fwrite(" ", 1, 1, stdout);
