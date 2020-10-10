@@ -7,6 +7,7 @@
 * [Clipboard](Clipboard)
 * [Color](ColorText)
 * [Cursor Handling](Cursor)
+* [File Editing](EditFile)
 * [Font Handling](Font)
 * [Grids](Grid)
 * [List](List)

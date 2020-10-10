@@ -78,16 +78,6 @@
 #### Docs
 - [Progress Bar](https://epsirho.github.io/UIKit/#/Progress) docs now have info on set_status_text
 
-#### Demo
-- Demo Complete with commenting and examples for every function `Incomplete`
-
-#### Syntax changes for:
-- grid (Overload `const char* arg, ...` with `std::vector<std::string> args`) `Incomplete`
-- list (Overload `const char* item, ...` with `std::vector<std::string> args`) `Incomplete`
-- choiceMenu (Overload `const char* choice, ...` with `std::vector<std::string> args`) `Incomplete`
-- loginMenu (Overload `const char* choice, ...` with `std::vector<std::string> args`) `Incomplete`
-- searchBar (Overload `std::vector<std::string> args` with `const char* arg, ...` ) `Incomplete`
-- mouseChoiceMenu (Overload `const char* choice, ...` with `std::vector<std::string> args`) `Incomplete`
 ### Fixes
 - Remove the need for NULL at the end of ... args `Incomplete`
 
@@ -97,6 +87,17 @@
 ### Additions
 - Multiple progressbars
 - Screenshot the console window and save it to a file
+
+#### Syntax changes for:
+- grid (Overload `const char* arg, ...` with `std::vector<std::string> args`) `Incomplete`
+- list (Overload `const char* item, ...` with `std::vector<std::string> args`) `Incomplete`
+- choiceMenu (Overload `const char* choice, ...` with `std::vector<std::string> args`) `Incomplete`
+- loginMenu (Overload `const char* choice, ...` with `std::vector<std::string> args`) `Incomplete`
+- searchBar (Overload `std::vector<std::string> args` with `const char* arg, ...` ) `Incomplete`
+- mouseChoiceMenu (Overload `const char* choice, ...` with `std::vector<std::string> args`) `Incomplete`
+
+#### Demo
+- Demo Complete with commenting and examples for every function `Incomplete`
 
 - - - 
 

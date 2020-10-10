@@ -10,10 +10,11 @@
 using namespace std;
 
 int main(void) {
-    UI::enableFullscreen(); // Send the application to fullscreen
+    //UI::enableFullscreen(); // Send the application to fullscreen
 	UI::hideCursor(); // Hide the console's cursor
 	UI::defaultColor(15); // set the color to be bright white
-	UI::setFontSize(32); 
+	UI::setFontSize(28); 
+	UI::setWindowSize(120, 35);
 
 	// Variables
 	bool uBool = false;
@@ -167,7 +168,9 @@ int main(void) {
 			case 13:
 				UI::disabledMouseHandling();
 				UI::clearScreen();
-				UI::editFile("C:\\Users\\jhset\\Desktop\\Utils\\KMSpico Portable\\ReadMe KMSpico Portable.txt");
+				std::string usrFile = UI::textMenu(pos, "Enter a file path");
+				UI::clearScreen();
+				UI::editFile(usrFile);
 				UI::clearScreen();
 				UI::enableMouseHandling();
 				UI::clearScreen();

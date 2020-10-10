@@ -221,44 +221,6 @@ void UI::scrollConsoleBuffer(int x1, int y1, int x2, int y2, int x3, int y3) {
         return;
     }
 }
-int ScrollByAbsoluteCoord(int iRows)
-{
-    CONSOLE_SCREEN_BUFFER_INFO csbiInfo;
-    SMALL_RECT srctWindow;
-
-    // Get the current screen buffer window position. 
-
-    if (!GetConsoleScreenBufferInfo(hout, &csbiInfo))
-    {
-        printf("GetConsoleScreenBufferInfo (%d)\n", GetLastError());
-        return 0;
-    }
-
-    // Check whether the window is too close to the screen buffer top
-
-    if (csbiInfo.srWindow.Bottom >= iRows)
-    {
-        srctWindow.Top = (SHORT)iRows;     // move top up
-        srctWindow.Bottom = (SHORT)iRows;  // move bottom up 
-        srctWindow.Left = 0;         // no change 
-        srctWindow.Right = 0;        // no change 
-
-        if (!SetConsoleWindowInfo(
-            hout,          // screen buffer handle 
-            FALSE,            // relative coordinates
-            &srctWindow))     // specifies new location 
-        {
-            printf("SetConsoleWindowInfo (%d)\n", GetLastError());
-            return 0;
-        }
-        return iRows;
-    }
-    else
-    {
-        printf("\nCannot scroll; the window is too close to the top.\n");
-        return 0;
-    }
-}
 
 //~~ Font Handling ~~//
 void UI::setFontSize(int FontSize)
@@ -547,10 +509,6 @@ std::string UI::copyFromClipboard() {
     return text;
 }
 void UI::editFile(std::string filepath) {
-    /*
-        buffer the file
-    */
-
     //Vars
     std::vector<std::string> lines;
     std::string text;
@@ -558,7 +516,7 @@ void UI::editFile(std::string filepath) {
     std::ofstream out;
     int longest;
     char vls[2] = { vLine, '\n' };
-    COORD pos = { 0,0 };
+    COORD pos = { 0,1 };
     COORD screenMax = getWindowSize();
     CONSOLE_SCREEN_BUFFER_INFO csbiInfo;
     SMALL_RECT srctScrollRect, srctClipRect;
@@ -570,17 +528,19 @@ void UI::editFile(std::string filepath) {
     if (!file.is_open()) {
         return;
     }
+    lines.push_back("");
     while (getline(file, text)) {
         lines.push_back(text);
     }
     file.close();
 
-    if (lines.size() == 0) {
+    if (lines.size() == 1) {
         lines.push_back("");
     }
 
     // Output file
-    for (int i = 0; i < lines.size(); i++) {
+    cursor(pos);
+    for (int i = 1; i < lines.size(); i++) {
         fwrite(lines[i].c_str(), lines[i].size(), 1, stdout);
         fwrite("\n", 1, 1, stdout);
     }
@@ -588,6 +548,8 @@ void UI::editFile(std::string filepath) {
     // Read keyboard input
     INPUT_RECORD InputRecord;
     DWORD Events;
+    cursor(0, 0);
+    fwrite("| Save   Exit | (Hit Esc to enter the menu)", 43, 1, stdout);
     cursor(pos);
     while (1) {
         ReadConsoleInput(hin, &InputRecord, 1, &Events);
@@ -599,7 +561,7 @@ void UI::editFile(std::string filepath) {
                         pos.X--;
                         cursor(pos);
                     }
-                    else if (pos.Y != 0) {
+                    else if (pos.Y > 1) {
                         pos.Y--;
                         pos.X = lines[pos.Y].size();
                         cursor(pos);
@@ -607,19 +569,17 @@ void UI::editFile(std::string filepath) {
                 }
                 else if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_UP)
                 {
-                    if (pos.Y <= 4 && pos.Y != 0) {
-                        ScrollByAbsoluteCoord(-1);
+                    if (pos.Y > 1) {
                         pos.Y--;
-                        cursor(pos);
-                    }
-                    else if (pos.Y != 0) {
-                        pos.Y--;
+                        if (pos.X > lines[pos.Y].size()) {
+                            pos.X = lines[pos.Y].size();
+                        }
                         cursor(pos);
                     }
                 }
                 else if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_RIGHT)
                 {
-                    if (pos.X < lines[pos.Y].size()) {
+                    if (pos.X < lines[pos.Y].size() && pos.Y != lines.size() - 1) {
                         pos.X++;
                         cursor(pos);
                     }
@@ -631,25 +591,24 @@ void UI::editFile(std::string filepath) {
                 }
                 else if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_DOWN)
                 {
-                    if(pos.Y >= screenMax.Y && pos.Y != lines.size() - 1){
-                        ScrollByAbsoluteCoord(1);
+                    if(pos.Y != lines.size() - 1){
                         pos.Y++;
-                        cursor(pos);
-                    }
-                    else if (pos.Y != lines.size() - 1) {
-                        pos.Y++;
+                        if (pos.X > lines[pos.Y].size()) {
+                            pos.X = lines[pos.Y].size();
+                        }
                         cursor(pos);
                     }
                 }
                 else if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_ESCAPE) {
-                    scrollConsoleBuffer(0, 0, screenMax.X, screenMax.Y, 0, 1);
+                    //scrollConsoleBuffer(0, 1, screenMax.X, screenMax.Y, 0, 1);
                     cursor(0, 0);
                     fwrite("| ", 2, 1, stdout);
                     SetConsoleTextAttribute(hout, 11);
                     fwrite("Save", 4, 1, stdout);
                     SetConsoleTextAttribute(hout, 15);
                     fwrite("   Exit", 7, 1, stdout);
-                    fwrite(" |", 2, 1, stdout);
+                    fwrite(" |                             ", 31, 1, stdout);
+                    cursor(15, 0);
                     int curPos = 0;
                     while (1) {
                         ReadConsoleInput(hin, &InputRecord, 1, &Events);
@@ -679,12 +638,14 @@ void UI::editFile(std::string filepath) {
                                 else if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_RETURN) {
                                     if (curPos == 0) {
                                         out.open(filepath);
-                                        for (int i = 0; i < lines.size() - 1; i++) {
+                                        for (int i = 1; i < lines.size() - 1; i++) {
                                             out << lines[i] << "\n";
                                         }
                                         out << lines[lines.size() - 1];
                                         out.close();
-                                        scrollConsoleBuffer(0, 0, screenMax.X, screenMax.Y, 0, -1);
+                                        //scrollConsoleBuffer(0, 0, screenMax.X, screenMax.Y, 0, -1);
+                                        cursor(0, 0);
+                                        fwrite("| Save   Exit |", 15, 1, stdout);
                                         cursor(pos);
                                         break;
                                     }
@@ -693,7 +654,9 @@ void UI::editFile(std::string filepath) {
                                     }
                                 }
                                 else if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_ESCAPE) {
-                                    scrollConsoleBuffer(0, 0, screenMax.X, screenMax.Y, 0, -1);
+                                    //scrollConsoleBuffer(0, 0, screenMax.X, screenMax.Y, 0, -1);
+                                    cursor(0, 0);
+                                    fwrite("| Save   Exit |", 15, 1, stdout);
                                     cursor(pos);
                                     break;
                                 }
@@ -731,7 +694,7 @@ void UI::editFile(std::string filepath) {
 
                 }
                 else if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_BACK) {
-                    if (pos.X == 0 && pos.Y != 0) {
+                    if (pos.X == 0 && pos.Y != 1) {
                         if (lines[pos.Y].size() != 0) {
                             lines[pos.Y - 1].erase(lines[pos.Y - 1].begin() + lines[pos.Y - 1].size() - 1);
                             pos.X = lines[pos.Y - 1].size();

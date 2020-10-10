@@ -18,10 +18,9 @@ connect(usr_return[0], usr_return[1], usr_return[2]);
 
 #### Output
 ```
-┌┤FTP Login
-│ Host:
-│ Username:
-│ Password:
-└──────────┤
+FTP Login
+▌Host:
+▌Username:
+▌Password:
 
 ```

@@ -1,65 +1,8 @@
-﻿  UIKit-b5.cpp
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(313,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(388,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(391,23): warning C4018: '>=': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(415,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(420,23): warning C4018: '>=': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(462,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(504,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(583,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(604,52): warning C4267: '=': conversion from 'size_t' to 'SHORT', possible loss of data
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(622,31): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(682,59): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(710,31): warning C4018: '>=': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(718,43): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(737,60): warning C4267: '=': conversion from 'size_t' to 'SHORT', possible loss of data
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(749,56): warning C4267: '=': conversion from 'size_t' to 'SHORT', possible loss of data
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(784,31): warning C4018: '>=': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(565,15): warning C4101: 'chiFill': unreferenced local variable
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(564,32): warning C4101: 'srctClipRect': unreferenced local variable
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(564,16): warning C4101: 'srctScrollRect': unreferenced local variable
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(563,32): warning C4101: 'csbiInfo': unreferenced local variable
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(559,9): warning C4101: 'longest': unreferenced local variable
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(566,11): warning C4101: 'coordDest': unreferenced local variable
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(829,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(835,17): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(871,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(904,27): warning C4018: '<=': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(938,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(958,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(991,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1003,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1009,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1032,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1050,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1059,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1069,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1128,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1134,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1135,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1147,48): warning C4244: '=': conversion from 'WORD' to 'char', possible loss of data
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1172,51): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1179,67): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1210,35): warning C4804: '>=': unsafe use of type 'bool' in operation
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1211,35): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1232,31): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1150,23): warning C4102: 'UI': unreferenced label
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1364,33): warning C4018: '<=': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1376,41): warning C4018: '<=': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1413,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1419,17): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1457,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1488,16): warning C4309: 'initializing': truncation of constant value
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1489,16): warning C4309: 'initializing': truncation of constant value
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1490,16): warning C4309: 'initializing': truncation of constant value
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1493,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1500,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1505,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1515,35): warning C4018: '<': signed/unsigned mismatch
-C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\UIKit-b5.cpp(1392,9): warning C4101: 'usr_input': unreferenced local variable
+﻿  Source.cpp
+C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\UIKit 4 Demo\Source.cpp(140,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Generating code
-  1 of 506 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+  1 of 502 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    3 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   UIKit 4 Demo.vcxproj -> C:\Users\jhset\Documents\GitHub\UIKit\UIKit Demo 5\UIKit 4 Demo\Release\UIKit 4 Demo.exe

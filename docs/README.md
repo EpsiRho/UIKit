@@ -3,7 +3,7 @@
 ## About
 UIKit is a C++ Library for making console GUIs with ease.<br>
 Written by [Epsi](https://twitter.com/EpsilonRho).<br>
-Changelog can be found [Here](CHANGELOG)<br>
+#### [Changelog](CHANGELOG) (Beta 1 -> Beta 5)<br>
 
 ## Using UIKit
 To use UIKit downlaod the zip file from [here](https://github.com/EpsiRho/UIKit/releases/tag/b-4.4).<br>
@@ -13,7 +13,7 @@ Extract the zip file into your project folder and include *UIKit-b5.h* into your
 You can now use UIKit functions under the namespace *UI*.
 
 ## Demo
-A demo of UIKit beta 4 functions can be found in the [download for the header files](https://github.com/EpsiRho/UIKit/releases/tag/b-4.4).<br>
+A demo of UIKit beta 5 functions can be found [Here](https://github.com/EpsiRho/UIKit/releases/tag/b-5.3).<br>
 
 ## Function Docs:
 [Boolean Menu](BoolMenu)<br>
@@ -23,6 +23,7 @@ A demo of UIKit beta 4 functions can be found in the [download for the header fi
 [Clipboard](Clipboard)<br>
 [Color](ColorText)<br>
 [Cursor Handling](Cursor)<br>
+[File Editing](EditFile)<br>
 [Font Handling](Font)<br>
 [Grids](Grid)<br>
 [List](List)<br>
