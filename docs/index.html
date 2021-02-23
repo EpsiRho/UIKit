@@ -1,33 +1,974 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>UIKit Beta 4 Docs</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="A C++ Library for easy, nice looking console GUIs">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link 
-    rel="stylesheet"
-    href="style.css"
-    title="docsify-darklight-theme"
-    type="text/css"
-/>
 
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>PVS-Studio HTML Report</title>
+<style type="text/css">
+   TABLE {
+    width: 100%;
+   }
+   #col_group, #col_level, #col_code, #col_cwe, #col_misra {
+    text-align: center;
+    white-space: nowrap;
+    width: 0;
+   }
+   #col_file, #col_info, #col_projects {
+    white-space: nowrap;
+    text-align: left;
+    width: 0;
+   }
+   #col_info {
+    width: 120px;
+   }
+   #col_message {
+    text-align: left;
+   }
+  </style>
+<link rel="stylesheet" href="style.css" />
+<script type="text/javascript" src="script.js"></script>
 </head>
 <body>
-  <div id="app"></div>
-  <script>
-    window.$docsify = {
-      name: '',
-      loadSidebar: true,
-      subMaxLevel: 2,
-      repo: ''
-    }
-  </script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-    <script 
-    src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js"
-    type="text/javascript">
+  <div class="header">
+    <img src="images/logo.png" alt=""/>
+    <h1>PVS-Studio Analysis Results</h1>
+    <br class="clear">
+  </div>
+
+  <table cellpadding="0" cellspacing="0" border="0" class="infotopic">
+     <tr><th id="col_info">Date:</th><td>02/23/21 12:03:53</td></tr>
+     <tr><th id="col_info">PVS-Studio Version:</th><td>7.11.44204.2742</td></tr>
+     <tr><th id="col_info">Total Warnings (GA):</th><td>41</td></tr>
+     <tr><th id="col_info">Total Warnings (OP):</th><td>2</td></tr>
+     <tr><th id="col_info">Total Warnings (64):</th><td>71</td></tr>
+  </table>
+  <table cellpadding="0" cellspacing="0" border="0" class="sortable" id="sorter">
+    <tr>
+      <th class="gsort">Group</th>
+      <th class="psort">Projects</th>
+      <th>Location</th>
+      <th class="lsort">Level</th>
+      <th class="vsort">Code</th>
+      <th>Message</th>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln44">Injection.c:44</a></td>
+      <td id="col_level" style="color:#FF0000"><b>High</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v205/">V205</td>
+      <td id="col_message">Explicit conversion of pointer type to 32-bit integer type: (DWORD) lpProcName</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln49">Injection.c:49</a></td>
+      <td id="col_level" style="color:#FF0000"><b>High</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v205/">V205</td>
+      <td id="col_message">Explicit conversion of pointer type to 32-bit integer type: (DWORD) lpProcName</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/hyper.h_1.html#ln877">hyper.h:877</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit conversion of 'hsResult' to memsize type in an arithmetic expression: hsResult == NULL</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/hyper.h_1.html#ln1000">hyper.h:1000</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v110/">V110</td>
+      <td id="col_message">Implicit type conversion of return value '(SOCKET)(~0)' from memsize type to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/hyper.h_1.html#ln940">hyper.h:940</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit conversion of 'ulSentSize' to memsize type in an arithmetic expression: (char *)(* lpBuffer) + ulSentSize</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/hyper.h_1.html#ln919">hyper.h:919</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v106/">V106</td>
+      <td id="col_message">Implicit type conversion second argument 'ulSize + 4096' of function 'HyperMemRealloc' to memsize type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/hyper.h_1.html#ln1064">hyper.h:1064</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v110/">V110</td>
+      <td id="col_message">Implicit type conversion of return value '(SOCKET)(~0)' from memsize type to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/hyper.h_1.html#ln870">hyper.h:870</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v107/">V107</td>
+      <td id="col_message">Implicit type conversion third argument 'stFileSize' of function 'WriteFile' to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/hyper.h_1.html#ln760">hyper.h:760</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v106/">V106</td>
+      <td id="col_message">Implicit type conversion second argument 'dwLength' of function 'HyperMemAlloc' to memsize type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/hyper.h_1.html#ln1113">hyper.h:1113</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v110/">V110</td>
+      <td id="col_message">Implicit type conversion of return value '(SOCKET)(~0)' from memsize type to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/hyper.h_1.html#ln1024">hyper.h:1024</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v110/">V110</td>
+      <td id="col_message">Implicit type conversion of return value '(SOCKET)(~0)' from memsize type to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/hyper.h_1.html#ln702">hyper.h:702</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit conversion of 'ulWrittenSize' to memsize type in an arithmetic expression: (char *)(data) + ulWrittenSize</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/hyper.h_1.html#ln695">hyper.h:695</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v106/">V106</td>
+      <td id="col_message">Implicit type conversion second argument 'ulFileSize + 4096' of function 'HyperMemAlloc' to memsize type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/hyper.h_1.html#ln632">hyper.h:632</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v124/">V124</td>
+      <td id="col_message">Function 'fread' reads '262144' bytes. The alignment rules and type sizes have been changed. Consider reviewing this value.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/hyper.h_1.html#ln1131">hyper.h:1131</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v107/">V107</td>
+      <td id="col_message">Implicit type conversion third argument 'stMaxCommandLength' of function 'recv' to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/hyper.h_1.html#ln1149">hyper.h:1149</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v107/">V107</td>
+      <td id="col_message">Implicit type conversion third argument 'strlen(szCommand)' of function 'send' to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/hyper.h_1.html#ln751">hyper.h:751</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit conversion of 'iResult' to memsize type in an arithmetic expression: iResult == NULL</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/hyper.h_1.html#ln1037">hyper.h:1037</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v107/">V107</td>
+      <td id="col_message">Implicit type conversion third argument 'res-&gt;ai_addrlen' of function 'connect' to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/args.c_2.html#ln35">args.c:35</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v123/">V123</td>
+      <td id="col_message">Allocation of memory by the pattern &quot;(X *)malloc(sizeof(Y))&quot; where the sizes of X and Y types are not equal.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Client.c_3.html#ln58">Client.c:58</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v107/">V107</td>
+      <td id="col_message">Implicit type conversion third argument 'NULL' of function 'RegCreateKeyExA' to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Client.c_3.html#ln130">Client.c:130</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit conversion of 'i' to memsize type in an arithmetic expression: i &lt; ppc-&gt;commandListSize</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Client.c_3.html#ln172">Client.c:172</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit conversion of 'i' to memsize type in an arithmetic expression: i &lt; ppc_struct.moduleNamesSize</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Client.c_3.html#ln177">Client.c:177</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v107/">V107</td>
+      <td id="col_message">Implicit type conversion fourth argument 'NULL' of function 'send' to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Client.c_3.html#ln70">Client.c:70</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v110/">V110</td>
+      <td id="col_message">Implicit type conversion of return value 'NULL' from memsize type to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Client.c_3.html#ln55">Client.c:55</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v106/">V106</td>
+      <td id="col_message">Implicit type conversion third argument 'stFileSize' of function 'HyperWriteFile' to memsize type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Client.c_3.html#ln72">Client.c:72</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v107/">V107</td>
+      <td id="col_message">Implicit type conversion third argument 'NULL' of function 'RegSetValueExA' to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Client.c_3.html#ln40">Client.c:40</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v103/">V103</td>
+      <td id="col_message">Implicit type conversion from memsize to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Client.c_3.html#ln39">Client.c:39</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v103/">V103</td>
+      <td id="col_message">Implicit type conversion from memsize to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Evasion.c_4.html#ln18">Evasion.c:18</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v112/">V112</td>
+      <td id="col_message">Dangerous magic number 4 used: *(vendor + 4) = (const c...</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Evasion.c_4.html#ln39">Evasion.c:39</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit conversion of 'i' to memsize type in an arithmetic expression: i &lt; stBadDllSize</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Evasion.c_4.html#ln41">Evasion.c:41</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v108/">V108</td>
+      <td id="col_message">Incorrect index type: DllList[not a memsize-type]. Use memsize type instead.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln104">Injection.c:104</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v110/">V110</td>
+      <td id="col_message">Implicit type conversion of return value 'NULL' from memsize type to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln91">Injection.c:91</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit type conversion to memsize type in an arithmetic expression.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln69">Injection.c:69</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit conversion of '* (DWORD *)(uiAddressArray)' to memsize type in an arithmetic expression.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln283">Injection.c:283</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit conversion of 'i' to memsize type in an arithmetic expression: i &lt; numOfCommands</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln60">Injection.c:60</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit conversion of '* (DWORD *)(uiNameArray)' to memsize type in an arithmetic expression.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln52">Injection.c:52</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit conversion of '* (DWORD *)(uiAddressArray)' to memsize type in an arithmetic expression.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln49">Injection.c:49</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit type conversion to memsize type in an arithmetic expression.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln253">Injection.c:253</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v103/">V103</td>
+      <td id="col_message">Implicit type conversion from memsize to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln19">Injection.c:19</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v103/">V103</td>
+      <td id="col_message">Implicit type conversion from memsize to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln254">Injection.c:254</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v103/">V103</td>
+      <td id="col_message">Implicit type conversion from memsize to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln27">Injection.c:27</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit type conversion to memsize type in an arithmetic expression.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln32">Injection.c:32</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit conversion of 'pDataDirectory-&gt;VirtualAddress' to memsize type in an arithmetic expression.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln35">Injection.c:35</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit conversion of 'pExportDirectory-&gt;AddressOfFunctions' to memsize type in an arithmetic expression.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln126">Injection.c:126</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit type conversion to memsize type in an arithmetic expression.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln199">Injection.c:199</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v103/">V103</td>
+      <td id="col_message">Implicit type conversion from memsize to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln133">Injection.c:133</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v110/">V110</td>
+      <td id="col_message">Implicit type conversion of return value 'NULL' from memsize type to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln142">Injection.c:142</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v110/">V110</td>
+      <td id="col_message">Implicit type conversion of return value 'NULL' from memsize type to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln200">Injection.c:200</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v103/">V103</td>
+      <td id="col_message">Implicit type conversion from memsize to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln198">Injection.c:198</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v103/">V103</td>
+      <td id="col_message">Implicit type conversion from memsize to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln197">Injection.c:197</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v103/">V103</td>
+      <td id="col_message">Implicit type conversion from memsize to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln186">Injection.c:186</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v110/">V110</td>
+      <td id="col_message">Implicit type conversion of return value 'NULL' from memsize type to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln213">Injection.c:213</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit conversion of 'dwReflectiveLoaderOffset' to memsize type in an arithmetic expression.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln171">Injection.c:171</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit type conversion to memsize type in an arithmetic expression.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln38">Injection.c:38</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit conversion of 'pExportDirectory-&gt;AddressOfNames' to memsize type in an arithmetic expression.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln166">Injection.c:166</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit type conversion to memsize type in an arithmetic expression.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln220">Injection.c:220</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v106/">V106</td>
+      <td id="col_message">Implicit type conversion second argument 'dwLength' of function 'VirtualProtect' to memsize type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln138">Injection.c:138</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v110/">V110</td>
+      <td id="col_message">Implicit type conversion of return value 'NULL' from memsize type to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln234">Injection.c:234</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v106/">V106</td>
+      <td id="col_message">Implicit type conversion second argument 'dwLength' of function 'VirtualProtect' to memsize type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln252">Injection.c:252</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v103/">V103</td>
+      <td id="col_message">Implicit type conversion from memsize to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln155">Injection.c:155</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit type conversion to memsize type in an arithmetic expression.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln152">Injection.c:152</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit type conversion to memsize type in an arithmetic expression.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln149">Injection.c:149</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit type conversion to memsize type in an arithmetic expression.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln158">Injection.c:158</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit type conversion to memsize type in an arithmetic expression.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln41">Injection.c:41</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v104/">V104</td>
+      <td id="col_message">Implicit conversion of 'pExportDirectory-&gt;AddressOfNameOrdinals' to memsize type in an arithmetic expression.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Networking.c_5.html#ln11">Networking.c:11</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v103/">V103</td>
+      <td id="col_message">Implicit type conversion from memsize to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Networking.c_5.html#ln12">Networking.c:12</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v103/">V103</td>
+      <td id="col_message">Implicit type conversion from memsize to 32-bit type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Evasion.c_4.html#ln19">Evasion.c:19</a></td>
+      <td id="col_level" style="color:#CACA00"><b>Low</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v206/">V206</td>
+      <td id="col_message">Explicit conversion from 'int *' to 'char *'.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Evasion.c_4.html#ln18">Evasion.c:18</a></td>
+      <td id="col_level" style="color:#CACA00"><b>Low</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v206/">V206</td>
+      <td id="col_message">Explicit conversion from 'int *' to 'char *'.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Evasion.c_4.html#ln17">Evasion.c:17</a></td>
+      <td id="col_level" style="color:#CACA00"><b>Low</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v206/">V206</td>
+      <td id="col_message">Explicit conversion from 'int *' to 'char *'.</td>
+    </tr>
+    <tr>
+      <td id="col_group">64-bit errors</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln285">Injection.c:285</a></td>
+      <td id="col_level" style="color:#CACA00"><b>Low</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v108/">V108</td>
+      <td id="col_message">Incorrect index type: temp[not a memsize-type]. Use memsize type instead.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/args.c_2.html#ln35">args.c:35</a></td>
+      <td id="col_level" style="color:#FF0000"><b>High</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v641/">V641</td>
+      <td id="col_message">The size of the allocated memory buffer is not a multiple of the element size.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Client.c_3.html#ln70">Client.c:70</a></td>
+      <td id="col_level" style="color:#FF0000"><b>High</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v724/">V724</td>
+      <td id="col_message">Converting type 'void *' to type 'BOOL' can lead to a loss of high-order bits. Non-zero value can become 'FALSE'.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Evasion.c_4.html#ln21">Evasion.c:21</a></td>
+      <td id="col_level" style="color:#FF0000"><b>High</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v558/">V558</td>
+      <td id="col_message">Function returns the pointer to temporary local object: vendor.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln132">Injection.c:132</a></td>
+      <td id="col_level" style="color:#FF0000"><b>High</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v547/">V547</td>
+      <td id="col_message">Expression 'dwCompiledArch != 1' is always true.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln137">Injection.c:137</a></td>
+      <td id="col_level" style="color:#FF0000"><b>High</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v547/">V547</td>
+      <td id="col_message">Expression 'dwCompiledArch != 2' is always false.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/hyper.h_1.html#ln705">hyper.h:705</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v547/">V547</td>
+      <td id="col_message">Expression 'ulWrittenSize &gt; ulFileSize' is always false.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/hyper.h_1.html#ln1033">hyper.h:1033</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v1031/">V1031</td>
+      <td id="col_message">The 'getaddrinfo' function is not declared. Passing data to or from this function can be affected.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Client.c_3.html#ln72">Client.c:72</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type. Inspect the third argument.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Client.c_3.html#ln39">Client.c:39</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Client.c_3.html#ln40">Client.c:40</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Client.c_3.html#ln58">Client.c:58</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type. Inspect the third argument.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Client.c_3.html#ln70">Client.c:70</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Client.c_3.html#ln177">Client.c:177</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type. Inspect the fourth argument.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Evasion.c_4.html#ln28">Evasion.c:28</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Evasion.c_4.html#ln11">Evasion.c:11</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v1009/">V1009</td>
+      <td id="col_message">Check the array initialization. Only the first element is initialized explicitly. The rest elements are initialized with zeros.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Evasion.c_4.html#ln19">Evasion.c:19</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Evasion.c_4.html#ln17">Evasion.c:17</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Evasion.c_4.html#ln18">Evasion.c:18</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln142">Injection.c:142</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln254">Injection.c:254</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln13">Injection.c:13</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln253">Injection.c:253</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln252">Injection.c:252</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln12">Injection.c:12</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln10">Injection.c:10</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln200">Injection.c:200</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln199">Injection.c:199</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln104">Injection.c:104</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln197">Injection.c:197</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln133">Injection.c:133</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln186">Injection.c:186</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln19">Injection.c:19</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln198">Injection.c:198</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Injection.c_0.html#ln14">Injection.c:14</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Networking.c_5.html#ln26">Networking.c:26</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Networking.c_5.html#ln11">Networking.c:11</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Networking.c_5.html#ln12">Networking.c:12</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Networking.c_5.html#ln13">Networking.c:13</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Networking.c_5.html#ln19">Networking.c:19</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v601/">V601</td>
+      <td id="col_message">Pointer is implicitly cast to an integer type.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/hyper.h_1.html#ln626">hyper.h:626</a></td>
+      <td id="col_level" style="color:#CACA00"><b>Low</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v575/">V575</td>
+      <td id="col_message">The null pointer is passed into 'free' function. Inspect the first argument.</td>
+    </tr>
+    <tr>
+      <td id="col_group">General Analysis</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/Client.c_3.html#ln97">Client.c:97</a></td>
+      <td id="col_level" style="color:#CACA00"><b>Low</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v513/">V513</td>
+      <td id="col_message">Use _beginthreadex/_endthreadex functions instead of CreateThread/ExitThread functions.</td>
+    </tr>
+    <tr>
+      <td id="col_group">Micro-optimizations</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/ntapi.h_6.html#ln458">ntapi.h:458</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v802/">V802</td>
+      <td id="col_message">On 64-bit platform, structure size can be reduced from 64 to 56 bytes by rearranging the fields according to their sizes in decreasing order.</td>
+    </tr>
+    <tr>
+      <td id="col_group">Micro-optimizations</td>
+      <td id="col_projects"><p>Fallen St4r</p></td>
+      <td id="col_file"><a target="_blank" href="sources/ntapi.h_6.html#ln240">ntapi.h:240</a></td>
+      <td id="col_level" style="color:#FFA500"><b>Medium</b></td>
+      <td id="col_code"><a target="_blank" href="https://www.viva64.com/en/w/v802/">V802</td>
+      <td id="col_message">On 64-bit platform, structure size can be reduced from 48 to 40 bytes by rearranging the fields according to their sizes in decreasing order.</td>
+    </tr>
+
+  </table>
+<script type="text/javascript">
+var sorter=new table.sorter("sorter");
+sorter.init("sorter",0);
 </script>
 </body>
 </html>
+
